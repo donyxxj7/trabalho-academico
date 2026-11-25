@@ -8,7 +8,7 @@
     <title>GameZone - Publicar</title>
 
     <!-- css da tela de publicar -->
-    <link rel="stylesheet" href="../CSS/explorar.css">
+    <link rel="stylesheet" href="../CSS/pagina.css">
 </head>
 
 <body>
@@ -18,9 +18,9 @@
         <div class="container">
 
             <!-- logo -->
-            <div class="logo">GameZone</div>
+            <a href="inicio.html" class="logo">GAME<span>ZONE</span></a>
 
-            <!-- menu -->
+            <!-- menu de navegação -->
             <nav class="menu">
                 <a href="inicio.html">Início</a>
                 <a href="explorar.html">Explorar</a>
@@ -29,23 +29,23 @@
                 <a href="#">Comunidade</a>
             </nav>
 
-            <!-- pesquisa -->
+            <!-- campo de pesquisa -->
             <div class="pesquisa">
+                <span>⌕</span>
                 <input type="text" placeholder="Buscar jogos, notícias...">
             </div>
 
             <!-- botão publicar -->
-            <a href="publicar.html" class="btn-publicar">+ Publicar</a>
+            <a href="pagina.html" class="btn-publicar">✎ PUBLICAR</a>
 
-            <!-- foto do perfil -->
-            <div class="perfil">
-                <img src="../img/foto.png" alt="Foto">
-            </div>
+            <!-- botão do menu (três linhas) -->
+            <button type="button" class="btn-menu">☰</button>
 
         </div>
     </header>
 
 
+    <!-- conteúdo principal -->
     <main class="pub">
 
         <!-- voltar -->
@@ -69,8 +69,10 @@
                 <!-- título -->
                 <input type="text" class="pub-titulo" placeholder="Digite seu título aqui...">
 
-                <!-- toolbar -->
+                <!-- barra de ferramentas -->
                 <div class="pub-toolbar">
+
+                    <!-- botões de formatação -->
                     <div class="pub-formatar">
                         <button type="button"><b>B</b></button>
                         <button type="button"><i>I</i></button>
@@ -94,7 +96,7 @@
             </section>
 
 
-            <!-- configurações -->
+            <!-- configurações (lado direito) -->
             <aside class="pub-config">
 
                 <h2>Configurações de Publicação</h2>
@@ -102,9 +104,12 @@
                 <!-- autor -->
                 <div class="pub-campo">
                     <label for="autor">Autor</label>
-                    <select id="autor">
-                        <option>Avatar</option>
-                    </select>
+                    <div class="pub-autor">
+                        <span class="pub-avatar">A</span>
+                        <select id="autor">
+                            <option>Avatar</option>
+                        </select>
+                    </div>
                 </div>
 
                 <!-- categorias -->
