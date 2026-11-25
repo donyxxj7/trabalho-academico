@@ -202,7 +202,7 @@ button {
     width: 40px;
     height: 40px;
     margin-left: 40px;
-    display: flex;
+    display: none; /* no computador fica escondido, os links já aparecem ao lado */
     align-items: center;
     justify-content: center;
     background: transparent;
@@ -445,14 +445,59 @@ button {
     background: transparent;
     border: none;
     outline: none;
-    resize: none;
     font-size: 13px;
     line-height: 1.7;
     color: #FFFFFF;
+    overflow-wrap: anywhere;
 }
 
-.pub-texto::placeholder {
+/* texto cinza que aparece quando o editor está vazio */
+.pub-texto:empty::before {
+    content: attr(data-placeholder);
     color: var(--cinza);
+}
+
+/* como ficam as coisas dentro do texto */
+.pub-texto b {
+    font-weight: 700;
+}
+
+.pub-texto i {
+    font-style: italic;
+}
+
+.pub-texto strike {
+    text-decoration: line-through;
+}
+
+.pub-texto ul {
+    padding-left: 22px;
+    list-style: disc;
+}
+
+.pub-texto a {
+    color: var(--roxo-claro);
+    text-decoration: underline;
+}
+
+.pub-texto code {
+    padding: 1px 5px;
+    background-color: var(--linha);
+    border-radius: 4px;
+    font-family: Consolas, monospace;
+}
+
+.pub-texto img {
+    display: block;
+    max-width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+/* botão de formatação que está ligado no trecho onde o cursor está */
+.pub-formatar button.ligado {
+    color: #FFFFFF;
+    background-color: var(--linha);
 }
 
 /* contador de caracteres e palavras (embaixo do editor) */
@@ -761,6 +806,11 @@ button {
 
     .pesquisa {
         margin-left: 40px;
+    }
+
+    /* nessa largura os links somem, então as três linhas aparecem */
+    .btn-menu {
+        display: flex;
     }
 
     /* menu que abre acompanha o espaço da direita */

@@ -14,7 +14,7 @@ const menuMobile = document.querySelector('#menu-mobile');
 // botões da barra de ícones da esquerda
 const iconesLaterais = document.querySelectorAll('.pub-icones button');
 
-// campo do título e área do texto da notícia
+// campo do título e área do texto da notícia (a área é uma div editável)
 const campoTitulo = document.querySelector('#titulo');
 const campoTexto = document.querySelector('#texto');
 
@@ -119,13 +119,14 @@ iconesLaterais.forEach(function (botao) {
 
 // função que conta o que tem escrito no texto e mostra embaixo do editor
 function atualizarContador() {
-    const texto = campoTexto.value;
+    // innerText é só o texto que aparece na tela, sem as marcações de negrito etc
+    const texto = campoTexto.innerText;
+
+    // tira os espaços e quebras de linha das pontas pra não contar espaço vazio
+    const textoLimpo = texto.trim();
 
     // quantidade de caracteres
-    const caracteres = texto.length;
-
-    // tira os espaços das pontas pra não contar espaço vazio
-    const textoLimpo = texto.trim();
+    const caracteres = textoLimpo.length;
 
     // quantidade de palavras (se estiver vazio é 0, senão separa pelos espaços)
     let palavras = 0;
@@ -137,39 +138,105 @@ function atualizarContador() {
     contador.textContent = 'Caracteres: ' + caracteres + ' | Palavras: ' + palavras;
 }
 
+// quando o editor fica vazio, o navegador deixa um <br> sobrando e o texto cinza não volta
+// essa função limpa isso
+function limparSeVazio() {
+    if (campoTexto.innerText.trim() === '' && !campoTexto.querySelector('img')) {
+        campoTexto.innerHTML = '';
+    }
+}
+
 // toda vez que digitar no texto, atualiza o contador
-campoTexto.addEventListener('input', atualizarContador);
+campoTexto.addEventListener('input', function () {
+    limparSeVazio();
+    atualizarContador();
+});
+
+// ao colar um texto, cola só o texto puro (sem fonte e cor de outro site)
+campoTexto.addEventListener('paste', function (evento) {
+    evento.preventDefault();
+    const textoColado = evento.clipboardData.getData('text/plain');
+    document.execCommand('insertText', false, textoColado);
+});
 
 
 // ---------- FORMATAÇÃO DO TEXTO ----------
 
-// função que coloca símbolos antes e depois do texto selecionado
-// se não tiver nada selecionado, usa o textoPadrao
-function envolverTexto(antes, depois, textoPadrao) {
-
-    // posição onde começa e onde termina a seleção
-    const inicio = campoTexto.selectionStart;
-    const fim = campoTexto.selectionEnd;
-
-    // pega o texto selecionado (ou o texto padrão se não selecionou nada)
-    const selecionado = campoTexto.value.substring(inicio, fim) || textoPadrao;
-
-    // monta o texto novo: o que vem antes + símbolos + selecionado + o que vem depois
-    campoTexto.value =
-        campoTexto.value.substring(0, inicio) +
-        antes + selecionado + depois +
-        campoTexto.value.substring(fim);
-
-    // volta o cursor pro texto e deixa o que foi formatado selecionado
+// função que aplica a formatação no texto selecionado (ou no ponto onde o cursor está)
+// comando é o nome do comando do navegador, tipo 'bold' ou 'italic'
+function formatar(comando, valor) {
+    // volta o foco pro editor, senão o clique no botão tira o cursor de lá
     campoTexto.focus();
-    campoTexto.setSelectionRange(inicio + antes.length, inicio + antes.length + selecionado.length);
+    document.execCommand(comando, false, valor);
 
-    // o texto mudou, então atualiza o contador
+    // o texto mudou, então atualiza o contador e os botões
     atualizarContador();
+    atualizarBotoesLigados();
+}
+
+// guarda o trecho que estava selecionado no texto
+// precisa disso porque o link pede uma janela e a seleção se perde
+let selecaoGuardada = null;
+
+// função que coloca o link no texto selecionado
+function criarLink() {
+    const selecao = window.getSelection();
+
+    // se não tem nada selecionado, pede pra selecionar primeiro
+    if (selecao.isCollapsed) {
+        mostrarAviso('Selecione o texto que vai virar link.', 'erro');
+        return;
+    }
+
+    selecaoGuardada = selecao.getRangeAt(0).cloneRange();
+
+    // pergunta o endereço do link
+    let endereco = prompt('Cole o endereço do link:', 'https://');
+    if (!endereco) {
+        return;
+    }
+
+    // se escreveu sem o http, coloca
+    if (!/^(https?:|mailto:)/i.test(endereco)) {
+        endereco = 'https://' + endereco;
+    }
+
+    // devolve a seleção que tinha antes da janela e cria o link
+    selecao.removeAllRanges();
+    selecao.addRange(selecaoGuardada);
+    formatar('createLink', endereco);
+
+    // abre o link em outra aba
+    campoTexto.querySelectorAll('a').forEach(function (link) {
+        link.target = '_blank';
+        link.rel = 'noopener';
+    });
+}
+
+// função que coloca o texto selecionado como código
+function criarCodigo() {
+    const selecao = window.getSelection();
+
+    // se não tem nada selecionado, pede pra selecionar primeiro
+    if (selecao.isCollapsed) {
+        mostrarAviso('Selecione o texto que vai virar código.', 'erro');
+        return;
+    }
+
+    // pega o texto selecionado e troca por ele dentro de <code>
+    // textContent evita que algum html colado vire código de verdade
+    const texto = document.createElement('code');
+    texto.textContent = selecao.toString();
+    formatar('insertHTML', texto.outerHTML);
 }
 
 // passa por cada botão de formatação
 botoesFormatar.forEach(function (botao) {
+
+    // mousedown com preventDefault faz o botão não roubar a seleção do texto
+    botao.addEventListener('mousedown', function (evento) {
+        evento.preventDefault();
+    });
 
     // quando clicar no botão
     botao.addEventListener('click', function () {
@@ -178,36 +245,80 @@ botoesFormatar.forEach(function (botao) {
         const acao = botao.dataset.acao;
 
         if (acao === 'negrito') {
-            envolverTexto('**', '**', 'texto em negrito');
+            formatar('bold');
 
         } else if (acao === 'italico') {
-            envolverTexto('*', '*', 'texto em itálico');
+            formatar('italic');
 
         } else if (acao === 'riscado') {
-            envolverTexto('~~', '~~', 'texto riscado');
+            formatar('strikeThrough');
 
         } else if (acao === 'lista') {
-            envolverTexto('- ', '', 'item da lista');
+            formatar('insertUnorderedList');
 
         } else if (acao === 'link') {
-            envolverTexto('[', '](https://)', 'texto do link');
+            criarLink();
 
         } else if (acao === 'codigo') {
-            envolverTexto('`', '`', 'código');
+            criarCodigo();
 
         } else if (acao === 'imagem') {
-            // abre a janela pra escolher a imagem
+            // guarda onde estava o cursor e abre a janela pra escolher a imagem
+            guardarCursor();
             arquivoMidia.click();
         }
     });
 });
 
+// função que marca os botões (negrito, itálico...) que estão ligados onde o cursor está
+function atualizarBotoesLigados() {
+    const comandos = {
+        negrito: 'bold',
+        italico: 'italic',
+        riscado: 'strikeThrough',
+        lista: 'insertUnorderedList'
+    };
+
+    botoesFormatar.forEach(function (botao) {
+        const comando = comandos[botao.dataset.acao];
+
+        // só os botões que têm comando (negrito, itálico, riscado, lista) acendem
+        if (comando) {
+            botao.classList.toggle('ligado', document.queryCommandState(comando));
+        }
+    });
+}
+
+// quando o cursor muda de lugar, atualiza os botões (só se for dentro do editor)
+document.addEventListener('selectionchange', function () {
+    const selecao = window.getSelection();
+    if (selecao.rangeCount && campoTexto.contains(selecao.anchorNode)) {
+        atualizarBotoesLigados();
+    }
+});
+
+// guarda a posição do cursor no texto pra colocar a imagem no lugar certo
+let cursorGuardado = null;
+
+function guardarCursor() {
+    const selecao = window.getSelection();
+    if (selecao.rangeCount && campoTexto.contains(selecao.anchorNode)) {
+        cursorGuardado = selecao.getRangeAt(0).cloneRange();
+    } else {
+        cursorGuardado = null;
+    }
+}
+
 // botão "add mídia" também abre a janela pra escolher a imagem
+botaoAddMidia.addEventListener('mousedown', function () {
+    guardarCursor();
+});
+
 botaoAddMidia.addEventListener('click', function () {
     arquivoMidia.click();
 });
 
-// quando escolher a imagem, coloca o nome dela dentro do texto
+// quando escolher a imagem, coloca ela dentro do texto
 arquivoMidia.addEventListener('change', function () {
     const arquivo = arquivoMidia.files[0];
 
@@ -216,8 +327,29 @@ arquivoMidia.addEventListener('change', function () {
         return;
     }
 
-    // escreve no texto no formato ![descrição](nome-do-arquivo)
-    envolverTexto('![', '](' + arquivo.name + ')', arquivo.name);
+    // só aceita arquivo de imagem
+    if (!arquivo.type.startsWith('image/')) {
+        mostrarAviso('Escolha um arquivo de imagem.', 'erro');
+        arquivoMidia.value = '';
+        return;
+    }
+
+    // devolve o cursor pro lugar onde estava (ou pro final do texto)
+    campoTexto.focus();
+    const selecao = window.getSelection();
+    if (cursorGuardado) {
+        selecao.removeAllRanges();
+        selecao.addRange(cursorGuardado);
+    } else {
+        selecao.selectAllChildren(campoTexto);
+        selecao.collapseToEnd();
+    }
+
+    // cria a imagem com um endereço temporário e coloca no texto
+    const imagem = document.createElement('img');
+    imagem.src = URL.createObjectURL(arquivo);
+    imagem.alt = arquivo.name;
+    formatar('insertHTML', imagem.outerHTML);
 
     // limpa o campo pra dar pra escolher o mesmo arquivo de novo depois
     arquivoMidia.value = '';
@@ -289,7 +421,7 @@ botaoPublicar.addEventListener('click', function () {
 
     // pega o título e o texto sem os espaços das pontas
     const titulo = campoTitulo.value.trim();
-    const texto = campoTexto.value.trim();
+    const texto = campoTexto.innerText.trim();
 
     // se o título está vazio, avisa e para por aqui
     if (titulo === '') {
@@ -299,7 +431,7 @@ botaoPublicar.addEventListener('click', function () {
     }
 
     // se o texto está vazio, avisa e para por aqui
-    if (texto === '') {
+    if (texto === '' && !campoTexto.querySelector('img')) {
         mostrarAviso('Escreva o texto da notícia.', 'erro');
         campoTexto.focus();
         return;
@@ -309,6 +441,7 @@ botaoPublicar.addEventListener('click', function () {
     const noticia = {
         titulo: titulo,
         texto: texto,
+        textoComFormatacao: campoTexto.innerHTML,
         autor: document.querySelector('#autor').value,
         categorias: pegarTags('#categorias'),
         tags: pegarTags('#tags'),
