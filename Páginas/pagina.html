@@ -7,7 +7,7 @@
 
     <title>GameZone - Publicar</title>
 
-    <!-- fonte Inter (a mesma que o figma usa) -->
+    <!-- fonte Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,11 +18,10 @@
 
 <body>
 
-    <!-- ========== ÍCONES ========== -->
-    <!-- fica escondido aqui. cada ícone é chamado lá embaixo com <use href="#nome"> -->
+    <!-- ícones (ficam escondidos aqui, são chamados nas outras partes da página) -->
     <svg class="sprite" xmlns="http://www.w3.org/2000/svg">
 
-        <!-- logo do gamezone (provisório, depois trocar pelo svg exportado do figma) -->
+        <!-- logo -->
         <symbol id="i-logo" viewBox="0 0 40 40">
             <rect x="3" y="4" width="34" height="27" rx="9" fill="none" stroke="#6C5CFF" stroke-width="3.5" />
             <path d="M11 31 L9 37 L19 31 Z" fill="#6C5CFF" />
@@ -55,7 +54,7 @@
             <polyline points="12 19 5 12 12 5" />
         </symbol>
 
-        <!-- setinha para baixo (selects) -->
+        <!-- setinha pra baixo (campos de seleção) -->
         <symbol id="i-seta-baixo" viewBox="0 0 24 24">
             <polyline points="6 9 12 15 18 9" />
         </symbol>
@@ -87,7 +86,7 @@
             <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
         </symbol>
 
-        <!-- ícones da barra de formatação -->
+        <!-- ícones da barra de formatação do texto -->
         <symbol id="i-lista" viewBox="0 0 24 24">
             <line x1="8" y1="6" x2="21" y2="6" />
             <line x1="8" y1="12" x2="21" y2="12" />
@@ -113,6 +112,7 @@
             <polyline points="8 6 2 12 8 18" />
         </symbol>
 
+        <!-- sinal de mais (botão add mídia) -->
         <symbol id="i-mais" viewBox="0 0 24 24">
             <line x1="12" y1="5" x2="12" y2="19" />
             <line x1="5" y1="12" x2="19" y2="12" />
@@ -120,11 +120,11 @@
     </svg>
 
 
-    <!-- ========== HEADER (barra roxa do topo) ========== -->
+    <!-- header (barra roxa do topo) -->
     <header class="header">
         <div class="container">
 
-            <!-- logo (ícone + texto) -->
+            <!-- logo (ícone + nome) -->
             <a href="../index.html" class="logo">
                 <svg class="logo-icone"><use href="#i-logo"></use></svg>
                 <span class="logo-texto">GAME<span>ZONE</span></span>
@@ -160,13 +160,13 @@
     </header>
 
 
-    <!-- ========== CONTEÚDO PRINCIPAL ========== -->
+    <!-- conteúdo principal -->
     <main class="pub">
 
-        <!-- coluna da esquerda: voltar + ícones + editor -->
+        <!-- coluna da esquerda (voltar + barra de ícones + editor) -->
         <div class="pub-esquerda">
 
-            <!-- link para voltar à notícia anterior -->
+            <!-- link pra voltar na notícia anterior -->
             <a href="#" class="pub-voltar">
                 <svg class="icone"><use href="#i-seta"></use></svg>
                 Voltar para notícia anterior
@@ -204,7 +204,7 @@
                     <!-- barra de ferramentas do texto -->
                     <div class="pub-toolbar">
 
-                        <!-- botões de formatação -->
+                        <!-- botões de formatação (negrito, itálico, riscado, lista, imagem, link e código) -->
                         <div class="pub-formatar">
                             <button type="button" class="negrito" aria-label="Negrito">B</button>
                             <button type="button" class="italico" aria-label="Itálico">I</button>
@@ -241,7 +241,7 @@
         </div>
 
 
-        <!-- ========== CONFIGURAÇÕES (coluna da direita) ========== -->
+        <!-- configurações de publicação (coluna da direita) -->
         <aside class="pub-config">
 
             <h2>Configurações de Publicação</h2>
