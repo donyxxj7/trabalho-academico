@@ -7,22 +7,132 @@
 
     <title>GameZone - Publicar</title>
 
+    <!-- fonte Inter (a mesma que o figma usa) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- css da tela de publicar -->
     <link rel="stylesheet" href="../CSS/pagina.css">
 </head>
 
 <body>
 
-    <!-- header -->
+    <!-- ========== ÍCONES ========== -->
+    <!-- fica escondido aqui. cada ícone é chamado lá embaixo com <use href="#nome"> -->
+    <svg class="sprite" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- logo do gamezone (provisório, depois trocar pelo svg exportado do figma) -->
+        <symbol id="i-logo" viewBox="0 0 40 40">
+            <rect x="3" y="4" width="34" height="27" rx="9" fill="none" stroke="#6C5CFF" stroke-width="3.5" />
+            <path d="M11 31 L9 37 L19 31 Z" fill="#6C5CFF" />
+            <path d="M14 15v8M10 19h8" stroke="#6C5CFF" stroke-width="3" stroke-linecap="round" />
+            <circle cx="26" cy="17" r="2.2" fill="#6C5CFF" />
+            <circle cx="30" cy="22" r="2.2" fill="#6C5CFF" />
+        </symbol>
+
+        <!-- lupa da pesquisa -->
+        <symbol id="i-busca" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="7" />
+            <line x1="21" y1="21" x2="16.5" y2="16.5" />
+        </symbol>
+
+        <!-- lápis do botão publicar -->
+        <symbol id="i-lapis" viewBox="0 0 24 24">
+            <path d="M17 3a2.8 2.8 0 0 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
+        </symbol>
+
+        <!-- três linhas do menu -->
+        <symbol id="i-menu" viewBox="0 0 24 24">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+        </symbol>
+
+        <!-- seta de voltar -->
+        <symbol id="i-seta" viewBox="0 0 24 24">
+            <line x1="19" y1="12" x2="5" y2="12" />
+            <polyline points="12 19 5 12 12 5" />
+        </symbol>
+
+        <!-- setinha para baixo (selects) -->
+        <symbol id="i-seta-baixo" viewBox="0 0 24 24">
+            <polyline points="6 9 12 15 18 9" />
+        </symbol>
+
+        <!-- ícones da barra da esquerda -->
+        <symbol id="i-home" viewBox="0 0 24 24">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+        </symbol>
+
+        <symbol id="i-usuario" viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+        </symbol>
+
+        <symbol id="i-pasta" viewBox="0 0 24 24">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+        </symbol>
+
+        <symbol id="i-controle" viewBox="0 0 24 24">
+            <rect x="2" y="6" width="20" height="12" rx="3" />
+            <path d="M6 12h4M8 10v4" />
+            <circle cx="15.5" cy="11" r="0.8" />
+            <circle cx="18" cy="13" r="0.8" />
+        </symbol>
+
+        <symbol id="i-engrenagem" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="3" />
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+        </symbol>
+
+        <!-- ícones da barra de formatação -->
+        <symbol id="i-lista" viewBox="0 0 24 24">
+            <line x1="8" y1="6" x2="21" y2="6" />
+            <line x1="8" y1="12" x2="21" y2="12" />
+            <line x1="8" y1="18" x2="21" y2="18" />
+            <line x1="3" y1="6" x2="3.01" y2="6" />
+            <line x1="3" y1="12" x2="3.01" y2="12" />
+            <line x1="3" y1="18" x2="3.01" y2="18" />
+        </symbol>
+
+        <symbol id="i-imagem" viewBox="0 0 24 24">
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <polyline points="21 15 16 10 5 21" />
+        </symbol>
+
+        <symbol id="i-link" viewBox="0 0 24 24">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+        </symbol>
+
+        <symbol id="i-codigo" viewBox="0 0 24 24">
+            <polyline points="16 18 22 12 16 6" />
+            <polyline points="8 6 2 12 8 18" />
+        </symbol>
+
+        <symbol id="i-mais" viewBox="0 0 24 24">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+        </symbol>
+    </svg>
+
+
+    <!-- ========== HEADER (barra roxa do topo) ========== -->
     <header class="header">
         <div class="container">
 
-            <!-- logo -->
-            <a href="inicio.html" class="logo">GAME<span>ZONE</span></a>
+            <!-- logo (ícone + texto) -->
+            <a href="../index.html" class="logo">
+                <svg class="logo-icone"><use href="#i-logo"></use></svg>
+                <span class="logo-texto">GAME<span>ZONE</span></span>
+            </a>
 
             <!-- menu de navegação -->
             <nav class="menu">
-                <a href="inicio.html">Início</a>
+                <a href="../index.html">Início</a>
                 <a href="explorar.html">Explorar</a>
                 <a href="#">Notícias</a>
                 <a href="#">Guias</a>
@@ -31,156 +141,198 @@
 
             <!-- campo de pesquisa -->
             <div class="pesquisa">
-                <span>⌕</span>
+                <svg class="icone"><use href="#i-busca"></use></svg>
                 <input type="text" placeholder="Buscar jogos, notícias...">
             </div>
 
             <!-- botão publicar -->
-            <a href="pagina.html" class="btn-publicar">✎ PUBLICAR</a>
+            <a href="pagina.html" class="btn-publicar">
+                <svg class="icone"><use href="#i-lapis"></use></svg>
+                PUBLICAR
+            </a>
 
             <!-- botão do menu (três linhas) -->
-            <button type="button" class="btn-menu">☰</button>
+            <button type="button" class="btn-menu" aria-label="Abrir menu">
+                <svg class="icone"><use href="#i-menu"></use></svg>
+            </button>
 
         </div>
     </header>
 
 
-    <!-- conteúdo principal -->
+    <!-- ========== CONTEÚDO PRINCIPAL ========== -->
     <main class="pub">
 
-        <!-- voltar -->
-        <a href="#" class="pub-voltar">← Voltar para notícia anterior</a>
+        <!-- coluna da esquerda: voltar + ícones + editor -->
+        <div class="pub-esquerda">
 
-        <div class="pub-layout">
+            <!-- link para voltar à notícia anterior -->
+            <a href="#" class="pub-voltar">
+                <svg class="icone"><use href="#i-seta"></use></svg>
+                Voltar para notícia anterior
+            </a>
 
-            <!-- barra de ícones da esquerda -->
-            <nav class="pub-icones">
-                <button type="button" class="ativo">⌂</button>
-                <button type="button">☺</button>
-                <button type="button">▤</button>
-                <button type="button">◉</button>
-                <button type="button">⚙</button>
-            </nav>
+            <!-- barra de ícones e editor lado a lado -->
+            <div class="pub-corpo">
+
+                <!-- barra de ícones da esquerda -->
+                <nav class="pub-icones">
+                    <button type="button" class="ativo" aria-label="Início">
+                        <svg class="icone"><use href="#i-home"></use></svg>
+                    </button>
+                    <button type="button" aria-label="Perfil">
+                        <svg class="icone"><use href="#i-usuario"></use></svg>
+                    </button>
+                    <button type="button" aria-label="Rascunhos">
+                        <svg class="icone"><use href="#i-pasta"></use></svg>
+                    </button>
+                    <button type="button" aria-label="Jogos">
+                        <svg class="icone"><use href="#i-controle"></use></svg>
+                    </button>
+                    <button type="button" aria-label="Configurações">
+                        <svg class="icone"><use href="#i-engrenagem"></use></svg>
+                    </button>
+                </nav>
 
 
-            <!-- editor -->
-            <section class="pub-editor">
+                <!-- editor da notícia -->
+                <section class="pub-editor">
 
-                <!-- título -->
-                <input type="text" class="pub-titulo" placeholder="Digite seu título aqui...">
+                    <!-- título da notícia -->
+                    <input type="text" class="pub-titulo" placeholder="Digite seu título aqui...">
 
-                <!-- barra de ferramentas -->
-                <div class="pub-toolbar">
+                    <!-- barra de ferramentas do texto -->
+                    <div class="pub-toolbar">
 
-                    <!-- botões de formatação -->
-                    <div class="pub-formatar">
-                        <button type="button"><b>B</b></button>
-                        <button type="button"><i>I</i></button>
-                        <button type="button"><s>S</s></button>
-                        <button type="button">≡</button>
-                        <button type="button">▣</button>
-                        <button type="button">🔗</button>
-                        <button type="button">&lt;&gt;</button>
+                        <!-- botões de formatação -->
+                        <div class="pub-formatar">
+                            <button type="button" class="negrito" aria-label="Negrito">B</button>
+                            <button type="button" class="italico" aria-label="Itálico">I</button>
+                            <button type="button" class="riscado" aria-label="Riscado">S</button>
+                            <button type="button" aria-label="Lista">
+                                <svg class="icone"><use href="#i-lista"></use></svg>
+                            </button>
+                            <button type="button" aria-label="Imagem">
+                                <svg class="icone"><use href="#i-imagem"></use></svg>
+                            </button>
+                            <button type="button" aria-label="Link">
+                                <svg class="icone"><use href="#i-link"></use></svg>
+                            </button>
+                            <button type="button" aria-label="Código">
+                                <svg class="icone"><use href="#i-codigo"></use></svg>
+                            </button>
+                        </div>
+
+                        <!-- botão adicionar mídia -->
+                        <button type="button" class="pub-add-midia">
+                            <svg class="icone"><use href="#i-mais"></use></svg>
+                            add mídia
+                        </button>
                     </div>
 
-                    <!-- adicionar mídia -->
-                    <button type="button" class="pub-add-midia">+ add mídia</button>
+                    <!-- texto da notícia -->
+                    <textarea class="pub-texto" placeholder="Escreva sua notícia ou artigo..."></textarea>
+
+                    <!-- contador de caracteres e palavras -->
+                    <div class="pub-contador">Caracteres: 0 | Palavras: 0</div>
+
+                </section>
+            </div>
+        </div>
+
+
+        <!-- ========== CONFIGURAÇÕES (coluna da direita) ========== -->
+        <aside class="pub-config">
+
+            <h2>Configurações de Publicação</h2>
+
+            <!-- autor -->
+            <div class="pub-campo">
+                <label for="autor">Autor</label>
+                <div class="pub-autor">
+                    <span class="pub-avatar">
+                        <svg class="icone"><use href="#i-usuario"></use></svg>
+                    </span>
+                    <select id="autor" class="pub-select">
+                        <option>Avatar</option>
+                    </select>
                 </div>
+            </div>
 
-                <!-- texto da notícia -->
-                <textarea class="pub-texto" placeholder="Escreva sua notícia ou artigo..."></textarea>
+            <!-- categorias -->
+            <div class="pub-campo">
+                <label>Categorias</label>
+                <div class="pub-tags-linha">
+                    <div class="pub-tags">
+                        <span class="pub-tag">Jogos</span>
+                        <span class="pub-tag">Notícias</span>
+                        <span class="pub-tag">Hardware</span>
+                        <span class="pub-tag">Dicas</span>
+                    </div>
+                    <svg class="icone pub-seta"><use href="#i-seta-baixo"></use></svg>
+                </div>
+            </div>
 
-                <!-- contador -->
-                <div class="pub-contador">Caracteres: 0 | Palavras: 0</div>
+            <!-- tags -->
+            <div class="pub-campo">
+                <label>Tags</label>
+                <div class="pub-tags-linha">
+                    <div class="pub-tags">
+                        <span class="pub-tag">Jogos</span>
+                        <span class="pub-tag">Notícias</span>
+                        <span class="pub-tag">Dicas</span>
+                    </div>
+                    <svg class="icone pub-seta"><use href="#i-seta-baixo"></use></svg>
+                </div>
+            </div>
 
-            </section>
+            <!-- imagem de destaque -->
+            <div class="pub-campo">
+                <label>Imagem de Destaque</label>
+                <div class="pub-capa">
+                    <svg class="icone"><use href="#i-imagem"></use></svg>
+                    <p>Adicionar imagem de capa</p>
+                </div>
+            </div>
 
+            <!-- opções de seo -->
+            <div class="pub-campo">
+                <h3>Opções de SEO</h3>
+                <label for="meta">Meta Description</label>
+                <textarea id="meta"></textarea>
+            </div>
 
-            <!-- configurações (lado direito) -->
-            <aside class="pub-config">
+            <!-- status e visibilidade -->
+            <div class="pub-campo">
+                <h3>Status e Visibilidade</h3>
 
-                <h2>Configurações de Publicação</h2>
+                <div class="pub-duas-colunas">
+                    <div>
+                        <label for="status">Status</label>
+                        <select id="status" class="pub-select">
+                            <option>Rascunho</option>
+                            <option>Publicado</option>
+                        </select>
+                    </div>
 
-                <!-- autor -->
-                <div class="pub-campo">
-                    <label for="autor">Autor</label>
-                    <div class="pub-autor">
-                        <span class="pub-avatar">A</span>
-                        <select id="autor">
-                            <option>Avatar</option>
+                    <div>
+                        <label for="visibilidade">Visibilidade</label>
+                        <select id="visibilidade" class="pub-select">
+                            <option>Público</option>
+                            <option>Privado</option>
                         </select>
                     </div>
                 </div>
+            </div>
 
-                <!-- categorias -->
-                <div class="pub-campo">
-                    <label>Categorias</label>
-                    <div class="pub-tags">
-                        <span class="pub-tag">Jogos ✕</span>
-                        <span class="pub-tag">Notícias ✕</span>
-                        <span class="pub-tag">Hardware ✕</span>
-                        <span class="pub-tag">Dicas ✕</span>
-                    </div>
-                </div>
+            <!-- agendar publicação -->
+            <div class="pub-campo">
+                <label for="agendar">Agendar</label>
+                <input type="date" id="agendar" class="pub-data">
+            </div>
 
-                <!-- tags -->
-                <div class="pub-campo">
-                    <label>Tags</label>
-                    <div class="pub-tags">
-                        <span class="pub-tag">Jogos ✕</span>
-                        <span class="pub-tag">Notícias ✕</span>
-                        <span class="pub-tag">Dicas ✕</span>
-                    </div>
-                </div>
+        </aside>
 
-                <!-- imagem de destaque -->
-                <div class="pub-campo">
-                    <label>Imagem de Destaque</label>
-                    <div class="pub-capa">
-                        <span>▣</span>
-                        <p>Adicionar imagem de capa</p>
-                    </div>
-                </div>
-
-                <!-- seo -->
-                <div class="pub-campo">
-                    <h3>Opções de SEO</h3>
-                    <label for="meta">Meta Description</label>
-                    <textarea id="meta" rows="3"></textarea>
-                </div>
-
-                <!-- status e visibilidade -->
-                <div class="pub-campo">
-                    <h3>Status e Visibilidade</h3>
-
-                    <div class="pub-duas-colunas">
-                        <div>
-                            <label for="status">Status</label>
-                            <select id="status">
-                                <option>Rascunho</option>
-                                <option>Publicado</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label for="visibilidade">Visibilidade</label>
-                            <select id="visibilidade">
-                                <option>Público</option>
-                                <option>Privado</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- agendar -->
-                <div class="pub-campo">
-                    <label for="agendar">Agendar</label>
-                    <input type="date" id="agendar">
-                </div>
-
-            </aside>
-
-        </div>
     </main>
 
 </body>

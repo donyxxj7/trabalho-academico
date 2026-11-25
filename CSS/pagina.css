@@ -1,33 +1,44 @@
-/* cores da tela */
+/* ==================================================
+   CORES DA TELA
+   (se precisar trocar uma cor, troca só aqui em cima)
+   ================================================== */
 :root {
-    --fundo: #0F0F1A;
-    --roxo: #4751FF;
-    --roxo-claro: #7C81FF;
-    --texto-suave: #ABADFF;
-    --texto-menu: #D8D9FF;
-    --borda: #0020E1;
+    --fundo: #0F0F1A;           /* fundo da página inteira */
+    --roxo: #4751FF;            /* botão publicar */
+    --roxo-claro: #7C81FF;      /* links do menu e detalhes */
+    --violeta: #7B4DFF;         /* tags e avatar */
+    --logo-zone: #6C5CFF;       /* parte "ZONE" da logo */
+    --cinza: #8B8DA3;           /* textos pequenos (labels, placeholder) */
+    --cinza-claro: #B4B6C8;     /* ícones da barra da esquerda */
+    --linha: #23232F;           /* linhas e fundo do botão ativo */
 }
 
 
-/* reset básico */
+/* ==================================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ================================================== */
+
+/* tira margem e padding padrão do navegador */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* configurações gerais */
+/* fundo escuro, fonte e cor do texto da página */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
     background-color: var(--fundo);
     color: #FFFFFF;
 }
 
+/* links sem sublinhado e com a cor do texto */
 a {
     text-decoration: none;
     color: inherit;
 }
 
+/* botões e campos usam a mesma fonte da página */
 button,
 input,
 select,
@@ -35,121 +46,177 @@ textarea {
     font-family: inherit;
 }
 
+button {
+    cursor: pointer;
+}
 
-/* HEADER */
+/* esconde o bloco de ícones que fica no começo do html */
+.sprite {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
 
-/* barra roxa do topo */
+/* estilo padrão de todos os ícones (só linha, sem preenchimento) */
+.icone {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+}
+
+
+/* ==================================================
+   HEADER (barra roxa do topo)
+   ================================================== */
+
+/* fundo da barra: degradê azul pra roxo + pontinhos por cima */
 .header {
     width: 100%;
-    height: 80px;
-    background: linear-gradient(90deg, #000F89, #2D1AA8);
+    height: 72px;
+    background:
+        radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1.4px) 0 0 / 18px 18px,
+        linear-gradient(90deg, #0B0E7E 0%, #2B1FAE 55%, #3E22C0 100%);
 }
 
-/* organiza os itens do header em linha */
+/* alinha tudo do header em uma linha */
 .container {
     width: 100%;
-    height: 80px;
-    padding: 0 64px;
+    height: 72px;
+    padding: 0 36px 0 110px;
     display: flex;
     align-items: center;
-    gap: 32px;
 }
 
-/* logo */
+/* logo (ícone + texto GAMEZONE) */
 .logo {
-    font-size: 28px;
-    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 700;
     white-space: nowrap;
     flex-shrink: 0;
 }
 
-/* parte "ZONE" da logo */
-.logo span {
-    color: var(--roxo-claro);
+/* tamanho do ícone da logo */
+.logo-icone {
+    width: 40px;
+    height: 40px;
 }
 
-/* menu de navegação */
+/* cor da parte "ZONE" (o "GAME" fica branco) */
+.logo-texto span {
+    color: var(--logo-zone);
+}
+
+/* menu de navegação (Início, Explorar...) */
 .menu {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 40px;
+    margin-left: 70px;
 }
 
+/* cada link do menu */
 .menu a {
-    font-size: 16px;
-    color: var(--texto-menu);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--roxo-claro);
     white-space: nowrap;
     transition: 0.2s;
 }
 
+/* link do menu ao passar o mouse */
 .menu a:hover {
+    color: #FFFFFF;
+}
+
+/* caixa da pesquisa */
+.pesquisa {
+    flex: 0 1 312px;
+    min-width: 160px;
+    height: 44px;
+    margin-left: 38px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #0A0A14;
+    border: 1px solid rgba(124, 129, 255, 0.22);
+    border-radius: 14px;
     color: var(--roxo-claro);
 }
 
-/* campo de pesquisa (estica e empurra o botão para a direita) */
-.pesquisa {
-    flex: 1;
-    max-width: 560px;
-    min-width: 0;
-    height: 44px;
-    background-color: var(--fundo);
-    border: 1px solid var(--borda);
-    border-radius: 18px;
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
+/* lupa da pesquisa */
+.pesquisa .icone {
+    width: 16px;
+    height: 16px;
 }
 
-/* ícone de lupa */
-.pesquisa span {
-    margin-right: 8px;
-    color: var(--texto-suave);
-    font-size: 18px;
-}
-
+/* campo onde digita a pesquisa */
 .pesquisa input {
-    width: 100%;
+    flex: 1;
+    min-width: 0;
     background: transparent;
     border: none;
     outline: none;
     color: #FFFFFF;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .pesquisa input::placeholder {
-    color: var(--texto-suave);
+    color: var(--cinza);
 }
 
-/* botão publicar (fica no canto direito) */
+/* botão PUBLICAR (azul, empurrado pro canto direito) */
 .btn-publicar {
     margin-left: auto;
-    height: 44px;
-    padding: 0 24px;
-    flex-shrink: 0;
-    background-color: var(--roxo);
-    border-radius: 12px;
+    height: 40px;
+    padding: 0 22px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    gap: 8px;
+    background-color: var(--roxo);
+    border-radius: 8px;
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 500;
     white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* lápis dentro do botão */
+.btn-publicar .icone {
+    width: 15px;
+    height: 15px;
 }
 
 .btn-publicar:hover {
     background-color: var(--roxo-claro);
 }
 
-/* botão do menu (três linhas) */
+/* botão das três linhas (menu) */
 .btn-menu {
     width: 40px;
     height: 40px;
-    flex-shrink: 0;
+    margin-left: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: transparent;
     border: none;
     color: #FFFFFF;
-    font-size: 24px;
-    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.btn-menu .icone {
+    width: 24px;
+    height: 24px;
 }
 
 .btn-menu:hover {
@@ -157,263 +224,367 @@ textarea {
 }
 
 
-/* TELA DE PUBLICAR */
+/* ==================================================
+   CONTEÚDO PRINCIPAL (divide esquerda e direita)
+   ================================================== */
 
-/* conteúdo (mesmo espaço lateral do header) */
+/* esquerda (voltar + editor) e direita (configurações) lado a lado */
 .pub {
-    width: 100%;
-    padding: 24px 64px 48px;
+    display: flex;
+    align-items: flex-start;
+    gap: 85px;
+    padding: 22px 55px 40px 32px;
 }
 
-/* voltar */
+/* coluna da esquerda (ocupa o espaço que sobrar) */
+.pub-esquerda {
+    flex: 1;
+    min-width: 0;
+}
+
+/* link "voltar para notícia anterior" */
 .pub-voltar {
-    display: inline-block;
-    margin-bottom: 32px;
-    font-size: 13px;
-    color: var(--texto-menu);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 40px;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.pub-voltar .icone {
+    width: 14px;
+    height: 14px;
 }
 
 .pub-voltar:hover {
     color: var(--roxo-claro);
 }
 
-/* divide: ícones | editor | configurações */
-.pub-layout {
+/* barra de ícones e editor lado a lado */
+.pub-corpo {
     display: flex;
-    gap: 40px;
-    align-items: stretch;
+    align-items: flex-start;
+    gap: 72px;
 }
 
 
-/* barra de ícones */
+/* ==================================================
+   BARRA DE ÍCONES (esquerda)
+   ================================================== */
+
+/* coluna com a linha vertical do lado direito */
 .pub-icones {
-    width: 56px;
-    flex-shrink: 0;
+    width: 48px;
+    height: 678px;
+    padding: 20px 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    padding-right: 16px;
-    border-right: 1px solid rgba(71, 81, 255, 0.25);
+    align-items: flex-start;
+    border-right: 1px solid var(--linha);
+    flex-shrink: 0;
 }
 
+/* cada botão de ícone */
 .pub-icones button {
     width: 40px;
     height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: transparent;
     border: none;
-    border-radius: 10px;
-    color: var(--texto-suave);
-    font-size: 18px;
-    cursor: pointer;
+    border-radius: 8px;
+    color: var(--cinza-claro);
 }
 
+/* botão ativo (casinha) e ao passar o mouse */
 .pub-icones button:hover,
 .pub-icones .ativo {
-    background-color: rgba(71, 81, 255, 0.25);
+    background-color: var(--linha);
     color: #FFFFFF;
 }
 
 
-/* editor */
+/* ==================================================
+   EDITOR (meio)
+   ================================================== */
+
+/* caixa do editor (sem borda, igual ao figma) */
 .pub-editor {
     flex: 1;
     min-width: 0;
+    min-height: 710px;
     display: flex;
     flex-direction: column;
-    min-height: 720px;
 }
 
-/* título */
+/* campo do título */
 .pub-titulo {
     width: 100%;
+    height: 74px;
+    padding-top: 52px;
     background: transparent;
     border: none;
     outline: none;
-    padding: 24px 0 20px;
-    font-size: 20px;
+    font-size: 16px;
+    line-height: 22px;
     color: #FFFFFF;
 }
 
 .pub-titulo::placeholder {
-    color: var(--texto-suave);
+    color: var(--cinza);
 }
 
-/* barra de ferramentas */
+/* linha da barra de ferramentas (formatação à esquerda, add mídia à direita) */
 .pub-toolbar {
+    height: 28px;
+    margin-top: 39px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 12px;
 }
 
+/* grupo dos botões B, I, S, lista, imagem, link, código */
 .pub-formatar {
     display: flex;
-    gap: 6px;
+    gap: 12px;
 }
 
+/* cada botão de formatação */
 .pub-formatar button {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: transparent;
     border: none;
     border-radius: 6px;
-    color: var(--texto-menu);
-    cursor: pointer;
+    color: #FFFFFF;
+    font-size: 13px;
 }
 
 .pub-formatar button:hover {
-    background-color: rgba(71, 81, 255, 0.25);
-    color: #FFFFFF;
+    background-color: var(--linha);
 }
 
-/* botão add mídia */
+/* ícones dentro da barra de formatação */
+.pub-formatar .icone {
+    width: 15px;
+    height: 15px;
+}
+
+/* letras B, I e S */
+.negrito {
+    font-weight: 700;
+}
+
+.italico {
+    font-style: italic;
+}
+
+.riscado {
+    text-decoration: line-through;
+}
+
+/* botão "+ add mídia" */
 .pub-add-midia {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     background: transparent;
     border: none;
-    color: var(--texto-suave);
-    font-size: 12px;
-    white-space: nowrap;
-    cursor: pointer;
+    color: var(--cinza);
+    font-size: 11px;
+}
+
+.pub-add-midia .icone {
+    width: 12px;
+    height: 12px;
 }
 
 .pub-add-midia:hover {
     color: #FFFFFF;
 }
 
-/* texto da notícia */
+/* área de escrever a notícia (cresce até o fim do editor) */
 .pub-texto {
     flex: 1;
     width: 100%;
+    padding-top: 28px;
     background: transparent;
     border: none;
     outline: none;
     resize: none;
-    padding: 12px 0;
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 13px;
+    line-height: 1.7;
     color: #FFFFFF;
 }
 
 .pub-texto::placeholder {
-    color: var(--texto-suave);
+    color: var(--cinza);
 }
 
-/* contador */
+/* contador de caracteres e palavras (embaixo) */
 .pub-contador {
     padding-top: 12px;
-    font-size: 11px;
-    color: var(--texto-suave);
+    font-size: 10px;
+    color: var(--cinza);
 }
 
 
-/* configurações (lado direito) */
+/* ==================================================
+   CONFIGURAÇÕES DE PUBLICAÇÃO (direita)
+   ================================================== */
+
+/* coluna da direita */
 .pub-config {
-    width: 340px;
+    width: 305px;
+    margin-top: 25px;
     flex-shrink: 0;
 }
 
+/* título "Configurações de Publicação" */
 .pub-config h2 {
+    margin-bottom: 32px;
     font-size: 16px;
-    margin-bottom: 24px;
+    font-weight: 600;
+    line-height: 20px;
 }
 
+/* títulos "Opções de SEO" e "Status e Visibilidade" */
 .pub-config h3 {
+    margin-bottom: 12px;
     font-size: 13px;
-    margin-bottom: 10px;
+    font-weight: 600;
+    line-height: 16px;
 }
 
+/* cada bloco da direita (autor, categorias, tags...) */
 .pub-campo {
     margin-bottom: 24px;
 }
 
-/* nome de cada campo */
+/* nome pequeno de cada campo (Autor, Tags, Status...) */
 .pub-campo label {
     display: block;
     margin-bottom: 8px;
     font-size: 11px;
-    color: var(--texto-suave);
+    line-height: 13px;
+    color: var(--cinza);
 }
 
-/* selects e inputs sem caixa */
-.pub-campo select,
-.pub-campo input {
+/* select sem caixa, com setinha cinza na direita */
+.pub-select {
     width: 100%;
-    background: transparent;
+    height: 40px;
+    padding: 0 12px;
+    appearance: none;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238B8DA3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
     border: none;
     outline: none;
-    padding: 4px 0;
-    color: #FFFFFF;
     font-size: 13px;
-    color-scheme: dark;
+    color: #FFFFFF;
+    cursor: pointer;
 }
 
-/* lista do select */
-.pub-campo option {
+/* opções quando o select abre */
+.pub-select option {
     background-color: var(--fundo);
-}
-
-/* autor com avatar */
-.pub-autor {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* bolinha do avatar */
-.pub-avatar {
-    width: 22px;
-    height: 22px;
-    flex-shrink: 0;
-    background-color: var(--roxo);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 11px;
-    font-weight: bold;
-}
-
-/* meta description */
-.pub-campo textarea {
-    width: 100%;
-    height: 70px;
-    background: transparent;
-    border: 1px solid rgba(71, 81, 255, 0.25);
-    border-radius: 8px;
-    outline: none;
-    resize: none;
-    padding: 10px 12px;
     color: #FFFFFF;
-    font-size: 13px;
 }
 
-/* tags e categorias */
+/* autor: bolinha do avatar por cima do select */
+.pub-autor {
+    position: relative;
+}
+
+.pub-autor .pub-select {
+    padding-left: 42px;
+}
+
+/* bolinha violeta do avatar */
+.pub-avatar {
+    position: absolute;
+    left: 12px;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--violeta);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.pub-avatar .icone {
+    width: 12px;
+    height: 12px;
+    stroke-width: 2.2;
+}
+
+/* linha das tags com a setinha na direita */
+.pub-tags-linha {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px 10px 12px;
+}
+
+/* lista de tags (quebra de linha quando enche) */
 .pub-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
+    flex: 1;
 }
 
+/* setinha ao lado das tags */
+.pub-seta {
+    width: 16px;
+    height: 16px;
+    margin-left: 12px;
+    color: var(--cinza);
+}
+
+/* cada tag (fundo roxo escuro + borda violeta) */
 .pub-tag {
-    background-color: rgba(71, 81, 255, 0.2);
-    border: 1px solid var(--roxo);
+    height: 22px;
+    padding: 0 8px 0 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: rgba(123, 77, 255, 0.18);
+    border: 1px solid var(--violeta);
     border-radius: 20px;
-    padding: 3px 10px;
     font-size: 11px;
-    color: var(--texto-menu);
+    color: #FFFFFF;
 }
 
-/* imagem de capa */
+/* bolinha com X no final da tag */
+.pub-tag::after {
+    content: "";
+    width: 11px;
+    height: 11px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B4B6C8' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M15 9l-6 6M9 9l6 6'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* caixa da imagem de destaque */
 .pub-capa {
-    height: 90px;
+    height: 118px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    color: var(--texto-suave);
     font-size: 12px;
+    color: var(--cinza);
     cursor: pointer;
 }
 
@@ -421,20 +592,79 @@ textarea {
     color: #FFFFFF;
 }
 
+/* campo da meta description (borda bem fraquinha) */
+.pub-campo textarea {
+    width: 100%;
+    height: 76px;
+    padding: 10px 12px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    outline: none;
+    resize: none;
+    font-size: 13px;
+    color: #FFFFFF;
+}
+
 /* status e visibilidade lado a lado */
 .pub-duas-colunas {
     display: flex;
-    gap: 24px;
+    gap: 12px;
 }
 
-.pub-duas-colunas div {
+.pub-duas-colunas > div {
     flex: 1;
 }
 
+/* campo da data (agendar) */
+.pub-data {
+    width: 100%;
+    height: 40px;
+    padding: 0 12px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 13px;
+    color: #FFFFFF;
+    color-scheme: dark;
+}
 
-/* RESPONSIVO (tablet e celular) */
+/* ícone do calendário passa pra esquerda da data */
+.pub-data::-webkit-calendar-picker-indicator {
+    order: -1;
+    margin: 0 10px 0 0;
+    opacity: 0.7;
+    cursor: pointer;
+}
 
-/* telas até 1100px: esconde o menu de links */
+
+/* ==================================================
+   RESPONSIVO (notebook, tablet e celular)
+   ================================================== */
+
+/* até 1300px: aperta os espaços */
+@media (max-width: 1300px) {
+
+    .container {
+        padding: 0 36px 0 48px;
+    }
+
+    .menu {
+        gap: 28px;
+        margin-left: 40px;
+    }
+
+    .pub {
+        gap: 48px;
+        padding-right: 36px;
+    }
+
+    .pub-corpo {
+        gap: 40px;
+    }
+}
+
+/* até 1100px: esconde o menu de links */
 @media (max-width: 1100px) {
 
     .menu {
@@ -442,50 +672,73 @@ textarea {
     }
 
     .container {
-        padding: 0 32px;
+        padding: 0 24px 0 32px;
     }
 
-    .pub {
-        padding: 24px 32px 48px;
+    .pesquisa {
+        margin-left: 40px;
     }
 }
 
-/* telas até 900px: coloca tudo em coluna */
+/* até 900px (tablet): tudo em uma coluna só */
 @media (max-width: 900px) {
 
-    /* editor e configurações um embaixo do outro */
-    .pub-layout {
+    .pub {
         flex-direction: column;
         gap: 24px;
+        padding: 20px 24px 40px;
     }
 
-    /* barra de ícones vira uma linha no topo */
+    .pub-esquerda {
+        width: 100%;
+    }
+
+    .pub-corpo {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    /* barra de ícones vira uma linha em cima do editor */
     .pub-icones {
         width: 100%;
-        flex-direction: row;
-        justify-content: space-around;
+        height: auto;
         padding: 0 0 12px;
+        flex-direction: row;
+        justify-content: space-between;
         border-right: none;
-        border-bottom: 1px solid rgba(71, 81, 255, 0.25);
+        border-bottom: 1px solid var(--linha);
     }
 
-    /* editor menor */
     .pub-editor {
+        width: 100%;
         min-height: 480px;
     }
 
-    /* configurações ocupam a largura toda */
+    .pub-titulo {
+        height: 44px;
+        padding-top: 20px;
+    }
+
+    .pub-toolbar {
+        margin-top: 16px;
+    }
+
+    .pub-texto {
+        padding-top: 16px;
+    }
+
+    /* configurações ocupam a largura toda, embaixo do editor */
     .pub-config {
         width: 100%;
+        margin-top: 0;
     }
 }
 
-/* telas até 700px: celular */
+/* até 700px (celular) */
 @media (max-width: 700px) {
 
     .container {
         padding: 0 16px;
-        gap: 12px;
     }
 
     /* esconde a pesquisa no celular */
@@ -494,20 +747,31 @@ textarea {
     }
 
     .logo {
-        font-size: 22px;
+        font-size: 18px;
     }
 
-    .btn-publicar {
-        padding: 0 16px;
+    .logo-icone {
+        width: 32px;
+        height: 32px;
+    }
+
+    .btn-menu {
+        margin-left: 8px;
     }
 
     .pub {
         padding: 16px 16px 40px;
     }
 
-    /* botões da toolbar quebram linha se faltar espaço */
+    /* botões da formatação quebram linha se não couberem */
     .pub-toolbar {
+        height: auto;
         flex-wrap: wrap;
         gap: 8px;
+    }
+
+    .pub-formatar {
+        flex-wrap: wrap;
+        gap: 6px;
     }
 }
