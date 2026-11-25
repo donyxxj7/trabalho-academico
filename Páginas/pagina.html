@@ -146,17 +146,26 @@
             </div>
 
             <!-- botão publicar -->
-            <a href="pagina.html" class="btn-publicar">
+            <button type="button" class="btn-publicar" id="btn-publicar">
                 <svg class="icone"><use href="#i-lapis"></use></svg>
                 PUBLICAR
-            </a>
+            </button>
 
             <!-- botão do menu (três linhas) -->
-            <button type="button" class="btn-menu" aria-label="Abrir menu">
+            <button type="button" class="btn-menu" id="btn-menu" aria-label="Abrir menu" aria-expanded="false">
                 <svg class="icone"><use href="#i-menu"></use></svg>
             </button>
 
         </div>
+
+        <!-- menu que abre quando clica nas três linhas -->
+        <nav class="menu-mobile" id="menu-mobile">
+            <a href="../index.html">Início</a>
+            <a href="explorar.html">Explorar</a>
+            <a href="#">Notícias</a>
+            <a href="#">Guias</a>
+            <a href="#">Comunidade</a>
+        </nav>
     </header>
 
 
@@ -199,26 +208,26 @@
                 <section class="pub-editor">
 
                     <!-- título da notícia -->
-                    <input type="text" class="pub-titulo" placeholder="Digite seu título aqui...">
+                    <input type="text" class="pub-titulo" id="titulo" placeholder="Digite seu título aqui...">
 
                     <!-- barra de ferramentas do texto -->
                     <div class="pub-toolbar">
 
                         <!-- botões de formatação (negrito, itálico, riscado, lista, imagem, link e código) -->
                         <div class="pub-formatar">
-                            <button type="button" class="negrito" aria-label="Negrito">B</button>
-                            <button type="button" class="italico" aria-label="Itálico">I</button>
-                            <button type="button" class="riscado" aria-label="Riscado">S</button>
-                            <button type="button" aria-label="Lista">
+                            <button type="button" class="negrito" data-acao="negrito" aria-label="Negrito">B</button>
+                            <button type="button" class="italico" data-acao="italico" aria-label="Itálico">I</button>
+                            <button type="button" class="riscado" data-acao="riscado" aria-label="Riscado">S</button>
+                            <button type="button" data-acao="lista" aria-label="Lista">
                                 <svg class="icone"><use href="#i-lista"></use></svg>
                             </button>
-                            <button type="button" aria-label="Imagem">
+                            <button type="button" data-acao="imagem" aria-label="Imagem">
                                 <svg class="icone"><use href="#i-imagem"></use></svg>
                             </button>
-                            <button type="button" aria-label="Link">
+                            <button type="button" data-acao="link" aria-label="Link">
                                 <svg class="icone"><use href="#i-link"></use></svg>
                             </button>
-                            <button type="button" aria-label="Código">
+                            <button type="button" data-acao="codigo" aria-label="Código">
                                 <svg class="icone"><use href="#i-codigo"></use></svg>
                             </button>
                         </div>
@@ -231,7 +240,7 @@
                     </div>
 
                     <!-- texto da notícia -->
-                    <textarea class="pub-texto" placeholder="Escreva sua notícia ou artigo..."></textarea>
+                    <textarea class="pub-texto" id="texto" placeholder="Escreva sua notícia ou artigo..."></textarea>
 
                     <!-- contador de caracteres e palavras -->
                     <div class="pub-contador">Caracteres: 0 | Palavras: 0</div>
@@ -263,11 +272,11 @@
             <div class="pub-campo">
                 <label>Categorias</label>
                 <div class="pub-tags-linha">
-                    <div class="pub-tags">
-                        <span class="pub-tag">Jogos</span>
-                        <span class="pub-tag">Notícias</span>
-                        <span class="pub-tag">Hardware</span>
-                        <span class="pub-tag">Dicas</span>
+                    <div class="pub-tags" id="categorias">
+                        <span class="pub-tag">Jogos<button type="button" class="pub-tag-x" aria-label="Remover Jogos"></button></span>
+                        <span class="pub-tag">Notícias<button type="button" class="pub-tag-x" aria-label="Remover Notícias"></button></span>
+                        <span class="pub-tag">Hardware<button type="button" class="pub-tag-x" aria-label="Remover Hardware"></button></span>
+                        <span class="pub-tag">Dicas<button type="button" class="pub-tag-x" aria-label="Remover Dicas"></button></span>
                     </div>
                     <svg class="icone pub-seta"><use href="#i-seta-baixo"></use></svg>
                 </div>
@@ -277,10 +286,10 @@
             <div class="pub-campo">
                 <label>Tags</label>
                 <div class="pub-tags-linha">
-                    <div class="pub-tags">
-                        <span class="pub-tag">Jogos</span>
-                        <span class="pub-tag">Notícias</span>
-                        <span class="pub-tag">Dicas</span>
+                    <div class="pub-tags" id="tags">
+                        <span class="pub-tag">Jogos<button type="button" class="pub-tag-x" aria-label="Remover Jogos"></button></span>
+                        <span class="pub-tag">Notícias<button type="button" class="pub-tag-x" aria-label="Remover Notícias"></button></span>
+                        <span class="pub-tag">Dicas<button type="button" class="pub-tag-x" aria-label="Remover Dicas"></button></span>
                     </div>
                     <svg class="icone pub-seta"><use href="#i-seta-baixo"></use></svg>
                 </div>
@@ -289,9 +298,11 @@
             <!-- imagem de destaque -->
             <div class="pub-campo">
                 <label>Imagem de Destaque</label>
-                <div class="pub-capa">
+                <div class="pub-capa" id="pub-capa">
                     <svg class="icone"><use href="#i-imagem"></use></svg>
                     <p>Adicionar imagem de capa</p>
+                    <!-- prévia da imagem escolhida -->
+                    <img class="pub-capa-img" id="capa-previa" alt="Prévia da imagem de capa">
                 </div>
             </div>
 
@@ -334,6 +345,17 @@
         </aside>
 
     </main>
+
+
+    <!-- campos escondidos pra escolher arquivo (abrem quando clica nos botões) -->
+    <input type="file" id="arquivo-midia" accept="image/*" hidden>
+    <input type="file" id="arquivo-capa" accept="image/*" hidden>
+
+    <!-- aviso que aparece no canto da tela (erro ou sucesso) -->
+    <div class="aviso" id="aviso" aria-live="polite"></div>
+
+    <!-- javascript da tela de publicar -->
+    <script src="../JS/pagina.js"></script>
 
 </body>
 
