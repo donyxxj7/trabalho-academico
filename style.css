@@ -7,8 +7,9 @@
 }
 
 
-
+/* ============================= */
 /* CONFIGURAÇÕES GERAIS DA PÁGINA */
+/* ============================= */
 
 body {
     font-family: Arial, sans-serif;
@@ -31,9 +32,10 @@ input {
 }
 
 
-
+/* ============================= */
 /* HEADER */
 /* Barra superior da página */
+/* ============================= */
 
 .header {
     width: 100%;
@@ -44,9 +46,10 @@ input {
 }
 
 
-
+/* ============================= */
 /* CONTAINER DO HEADER */
 /* Centraliza os itens dentro do header */
+/* ============================= */
 
 .container {
     width: 1280px;
@@ -59,22 +62,24 @@ input {
 }
 
 
-
+/* ============================= */
 /* LOGO GAMEZONE */
+/* ============================= */
 
 .logo {
     font-size: 28px;
     font-weight: bold;
 
-    color: #FFFFFF;
+    color: #ECEDF8;
 
     margin-right: 48px;
 }
 
 
-
+/* ============================= */
 /* MENU DE NAVEGAÇÃO */
 /* Início, Explorar, Notícias... */
+/* ============================= */
 
 .menu {
     display: flex;
@@ -88,7 +93,7 @@ input {
 .menu a {
     font-size: 16px;
 
-    color: #D8D9FF;
+    color: #ECEDF8;
 
     transition: 0.2s;
 }
@@ -102,13 +107,14 @@ input {
 
 /* Página atual selecionada */
 .menu .ativo {
-    color: #FFFFFF;
+    color: #ECEDF8;
     font-weight: bold;
 }
 
 
-
+/* ============================= */
 /* CAMPO DE PESQUISA */
+/* ============================= */
 
 .pesquisa {
     width: 312px;
@@ -118,7 +124,7 @@ input {
 
     background-color: #11111B;
 
-    border: 1px solid #0020E1;
+    border: 1px solid #2A2F57;
     border-radius: 18px;
 
     display: flex;
@@ -130,7 +136,7 @@ input {
 
 /* Ícone da pesquisa */
 .pesquisa span {
-    color: #D8D9FF;
+    color: #ECEDF8;
 
     margin-right: 10px;
 }
@@ -145,7 +151,7 @@ input {
     border: none;
     outline: none;
 
-    color: #FFFFFF;
+    color: #ECEDF8;
 
     font-size: 14px;
 }
@@ -153,11 +159,13 @@ input {
 
 /* Texto que aparece antes de digitar */
 .pesquisa input::placeholder {
-    color: #ABADFF;
+    color: #777787;
 }
 
 
+/* ============================= */
 /* BOTÃO PUBLICAR */
+/* ============================= */
 
 .btn-publicar {
     width: 120px;
@@ -170,13 +178,12 @@ input {
     border-radius: 12px;
 
     display: flex;
-
     justify-content: center;
     align-items: center;
 
     font-weight: bold;
 
-    color: #FFFFFF;
+    color: #ECEDF8;
 }
 
 
@@ -185,7 +192,10 @@ input {
     background-color: #7C81FF;
 }
 
+
+/* ============================= */
 /* PERFIL / AVATAR */
+/* ============================= */
 
 .perfil {
     width: 40px;
@@ -207,7 +217,10 @@ input {
     object-fit: cover;
 }
 
+
+/* ============================= */
 /* CONTEÚDO PRINCIPAL */
+/* ============================= */
 
 main {
     width: 100%;
@@ -215,6 +228,7 @@ main {
 
 .inicio {
     width: 1280px;
+
     margin: 0 auto;
 
     display: flex;
@@ -226,14 +240,18 @@ main {
 }
 
 
-
+/* ============================= */
 /* ÁREA DO FEED */
+/* ============================= */
 
 .conteudo-principal {
     width: 850px;
 }
 
+
+/* ============================= */
 /* TÍTULO DA PÁGINA */
+/* ============================= */
 
 .titulo-pagina {
     margin-bottom: 24px;
@@ -241,20 +259,25 @@ main {
 
 .titulo-pagina h1 {
     font-size: 32px;
+
     margin-bottom: 8px;
 }
 
 .titulo-pagina p {
     font-size: 16px;
-    color: #ABADFF;
+
+    color: #777787;
 }
 
+
+/* ============================= */
 /* POSTS */
+/* ============================= */
 
 .post {
     background-color: #11111B;
 
-    border: 1px solid #0020E1;
+    border: 1px solid #2A2F57;
     border-radius: 16px;
 
     padding: 24px;
@@ -262,7 +285,10 @@ main {
     margin-bottom: 24px;
 }
 
+
+/* ============================= */
 /* USUÁRIO DO POST */
+/* ============================= */
 
 .post-usuario {
     display: flex;
@@ -293,10 +319,14 @@ main {
 
 .post-usuario span {
     font-size: 13px;
-    color: #ABADFF;
+
+    color: #777787;
 }
 
+
+/* ============================= */
 /* CONTEÚDO DO POST */
+/* ============================= */
 
 .categoria {
     display: inline-block;
@@ -320,14 +350,13 @@ main {
 
     line-height: 1.5;
 
-    color: #D8D9FF;
+    color: #ECEDF8;
 
     margin-bottom: 16px;
 }
 
 
 /* Imagem principal da publicação */
-
 .post-imagem {
     width: 100%;
     height: 320px;
@@ -337,7 +366,10 @@ main {
     object-fit: cover;
 }
 
+
+/* ============================= */
 /* BOTÕES DO POST */
+/* ============================= */
 
 .post-acoes {
     display: flex;
@@ -352,7 +384,7 @@ main {
 
     border: none;
 
-    color: #D8D9FF;
+    color: #ECEDF8;
 
     cursor: pointer;
 }
@@ -361,19 +393,25 @@ main {
     color: #7C81FF;
 }
 
+
+/* ============================= */
 /* BARRA LATERAL */
 /* Jogos em alta e comunidades */
+/* ============================= */
 
 .lateral {
     width: 398px;
 }
 
-/* CARDS DA BARRA LATERAL */
+
+/* ============================= */
+/* CARDS LATERAIS */
+/* ============================= */
 
 .card-lateral {
-    background-color: #000F89;
+    background-color: #12121F;
 
-    border: 1px solid #0020E1;
+    border: 1px solid #2A2F57;
     border-radius: 16px;
 
     padding: 20px;
@@ -390,7 +428,9 @@ main {
 }
 
 
+/* ============================= */
 /* JOGOS EM ALTA */
+/* ============================= */
 
 .jogo {
     display: flex;
@@ -398,7 +438,7 @@ main {
 
     padding: 12px 0;
 
-    border-bottom: 1px solid #0020E1;
+    border-bottom: 1px solid #2A2F57;
 }
 
 
@@ -420,10 +460,13 @@ main {
 .jogo span {
     font-size: 13px;
 
-    color: #ABADFF;
+    color: #777787;
 }
 
+
+/* ============================= */
 /* COMUNIDADES */
+/* ============================= */
 
 .comunidade {
     display: flex;
@@ -434,7 +477,7 @@ main {
 
     padding: 12px 0;
 
-    border-bottom: 1px solid #0020E1;
+    border-bottom: 1px solid #2A2F57;
 }
 
 
@@ -463,7 +506,7 @@ main {
 .comunidade span {
     font-size: 13px;
 
-    color: #ABADFF;
+    color: #777787;
 }
 
 
@@ -476,7 +519,7 @@ main {
 
     padding: 6px 12px;
 
-    color: #FFFFFF;
+    color: #ECEDF8;
 
     cursor: pointer;
 }
@@ -487,129 +530,343 @@ main {
     background-color: #4751FF;
 }
 
-/* BARRA LATERAL */
-/* Jogos em alta e comunidades */
 
-.lateral {
-    width: 398px;
+/* ================================================== */
+/* RESPONSIVIDADE MOBILE */
+/* Telas de até 768px */
+/* ================================================== */
+
+@media (max-width: 768px) {
+
+    /* ============================= */
+    /* HEADER */
+    /* ============================= */
+
+    .header {
+        height: auto;
+    }
+
+
+    /* Container do header */
+    .container {
+        width: 100%;
+        height: auto;
+
+        padding: 16px;
+
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        gap: 16px;
+    }
+
+
+    /* ============================= */
+    /* LOGO */
+    /* ============================= */
+
+    .logo {
+        font-size: 24px;
+
+        margin-right: auto;
+    }
+
+
+    /* ============================= */
+    /* BOTÃO PUBLICAR */
+    /* ============================= */
+
+    .btn-publicar {
+        width: 105px;
+        height: 40px;
+
+        margin-left: 0;
+
+        font-size: 14px;
+    }
+
+
+    /* ============================= */
+    /* PERFIL / AVATAR */
+    /* ============================= */
+
+    .perfil {
+        width: 38px;
+        height: 38px;
+
+        margin-left: 0;
+    }
+
+
+    /* ============================= */
+    /* CAMPO DE PESQUISA */
+    /* Ocupa uma linha inteira */
+    /* ============================= */
+
+    .pesquisa {
+        width: 100%;
+        height: 42px;
+
+        margin-left: 0;
+
+        order: 3;
+    }
+
+
+    /* ============================= */
+    /* MENU */
+    /* Fica abaixo da pesquisa */
+    /* ============================= */
+
+    .menu {
+        width: 100%;
+
+        order: 4;
+
+        display: flex;
+
+        gap: 20px;
+
+        overflow-x: auto;
+
+        padding-bottom: 6px;
+    }
+
+
+    /* Evita quebra do texto dos links */
+    .menu a {
+        white-space: nowrap;
+    }
+
+
+    /* ============================= */
+    /* CONTEÚDO PRINCIPAL */
+    /* ============================= */
+
+    .inicio {
+        width: 100%;
+
+        padding: 24px 16px 50px 16px;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 24px;
+    }
+
+
+    /* ============================= */
+    /* FEED */
+    /* ============================= */
+
+    .conteudo-principal {
+        width: 100%;
+    }
+
+
+    /* ============================= */
+    /* TÍTULO DA PÁGINA */
+    /* ============================= */
+
+    .titulo-pagina {
+        margin-bottom: 20px;
+    }
+
+    .titulo-pagina h1 {
+        font-size: 28px;
+    }
+
+    .titulo-pagina p {
+        font-size: 14px;
+    }
+
+
+    /* ============================= */
+    /* POSTS */
+    /* ============================= */
+
+    .post {
+        width: 100%;
+
+        padding: 14px;
+
+        border-radius: 12px;
+    }
+
+
+    /* Usuário do post */
+    .post-usuario {
+        gap: 10px;
+    }
+
+    .post-usuario img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .post-usuario strong {
+        font-size: 13px;
+    }
+
+    .post-usuario span {
+        font-size: 12px;
+    }
+
+
+    /* ============================= */
+    /* CONTEÚDO DO POST */
+    /* ============================= */
+
+    .post-conteudo h2 {
+        font-size: 19px;
+    }
+
+    .post-conteudo p {
+        font-size: 14px;
+
+        line-height: 1.5;
+    }
+
+
+    /* ============================= */
+    /* IMAGEM DO POST */
+    /* ============================= */
+
+    .post-imagem {
+        width: 100%;
+        height: 220px;
+
+        border-radius: 10px;
+    }
+
+
+    /* ============================= */
+    /* BOTÕES DO POST */
+    /* ============================= */
+
+    .post-acoes {
+        display: flex;
+        flex-wrap: wrap;
+
+        gap: 14px;
+    }
+
+    .post-acoes button {
+        font-size: 12px;
+    }
+
+
+    /* ============================= */
+    /* BARRA LATERAL */
+    /* Vai para baixo do feed */
+    /* ============================= */
+
+    .lateral {
+        width: 100%;
+    }
+
+
+    /* ============================= */
+    /* CARDS LATERAIS */
+    /* ============================= */
+
+    .card-lateral {
+        width: 100%;
+
+        padding: 16px;
+
+        border-radius: 12px;
+    }
+
+    .card-lateral h2 {
+        font-size: 18px;
+    }
+
+
+    /* ============================= */
+    /* COMUNIDADES */
+    /* ============================= */
+
+    .comunidade {
+        gap: 8px;
+    }
+
+    .comunidade button {
+        padding: 6px 10px;
+
+        font-size: 12px;
+    }
 }
 
 
-/* CARDS LATERAIS */
+/* ================================================== */
+/* CELULARES PEQUENOS */
+/* Telas de até 480px */
+/* ================================================== */
 
-.card-lateral {
-    background-color: #000F89;
+@media (max-width: 480px) {
 
-    border: 1px solid #0020E1;
-    border-radius: 16px;
-
-    padding: 20px;
-
-    margin-bottom: 24px;
-}
-
-
-/* Título dos cards laterais */
-.card-lateral h2 {
-    font-size: 20px;
-
-    margin-bottom: 16px;
-}
-
-/* JOGOS EM ALTA */
-
-.jogo {
-    display: flex;
-    flex-direction: column;
-
-    padding: 12px 0;
-
-    border-bottom: 1px solid #0020E1;
-}
+    /* Logo menor */
+    .logo {
+        font-size: 22px;
+    }
 
 
-/* Remove a linha do último item */
-.jogo:last-child {
-    border-bottom: none;
-}
+    /* Botão publicar menor */
+    .btn-publicar {
+        width: 95px;
+        height: 38px;
+
+        font-size: 13px;
+    }
 
 
-/* Nome do jogo */
-.jogo strong {
-    font-size: 15px;
-
-    margin-bottom: 4px;
-}
-
-
-/* Quantidade de publicações */
-.jogo span {
-    font-size: 13px;
-
-    color: #ABADFF;
-}
+    /* Avatar menor */
+    .perfil {
+        width: 36px;
+        height: 36px;
+    }
 
 
-/* COMUNIDADES */
+    /* Menu */
+    .menu {
+        gap: 16px;
+    }
 
-.comunidade {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 12px;
-
-    padding: 12px 0;
-
-    border-bottom: 1px solid #0020E1;
-}
+    .menu a {
+        font-size: 14px;
+    }
 
 
-/* Remove a linha da última comunidade */
-.comunidade:last-child {
-    border-bottom: none;
-}
+    /* Título da página */
+    .titulo-pagina h1 {
+        font-size: 26px;
+    }
 
 
-/* Informações da comunidade */
-.comunidade div {
-    display: flex;
-    flex-direction: column;
-}
+    /* Posts */
+    .post {
+        padding: 14px;
+    }
+
+    .post-conteudo h2 {
+        font-size: 18px;
+    }
+
+    .post-conteudo p {
+        font-size: 13px;
+    }
 
 
-/* Nome da comunidade */
-.comunidade strong {
-    font-size: 15px;
-
-    margin-bottom: 4px;
-}
+    /* Imagem do post */
+    .post-imagem {
+        height: 180px;
+    }
 
 
-/* Quantidade de membros */
-.comunidade span {
-    font-size: 13px;
-
-    color: #ABADFF;
-}
-
-
-/* Botão seguir */
-.comunidade button {
-    background-color: transparent;
-
-    border: 1px solid #4751FF;
-    border-radius: 8px;
-
-    padding: 6px 12px;
-
-    color: #FFFFFF;
-
-    cursor: pointer;
-}
-
-
-/* Efeito ao passar o mouse */
-.comunidade button:hover {
-    background-color: #4751FF;
+    /* Título dos cards laterais */
+    .card-lateral h2 {
+        font-size: 17px;
+    }
 }
