@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GameZone - Publicar</title>
+
+    <!-- css da tela de publicar -->
+    <link rel="stylesheet" href="../CSS/explorar.css">
+</head>
+
+<body>
+
+    <!-- header -->
+    <header class="header">
+        <div class="container">
+
+            <!-- logo -->
+            <div class="logo">GameZone</div>
+
+            <!-- menu -->
+            <nav class="menu">
+                <a href="inicio.html">Início</a>
+                <a href="explorar.html">Explorar</a>
+                <a href="#">Notícias</a>
+                <a href="#">Guias</a>
+                <a href="#">Comunidade</a>
+            </nav>
+
+            <!-- pesquisa -->
+            <div class="pesquisa">
+                <input type="text" placeholder="Buscar jogos, notícias...">
+            </div>
+
+            <!-- botão publicar -->
+            <a href="publicar.html" class="btn-publicar">+ Publicar</a>
+
+            <!-- foto do perfil -->
+            <div class="perfil">
+                <img src="../img/foto.png" alt="Foto">
+            </div>
+
+        </div>
+    </header>
+
+
+    <main class="pub">
+
+        <!-- voltar -->
+        <a href="#" class="pub-voltar">← Voltar para notícia anterior</a>
+
+        <div class="pub-layout">
+
+            <!-- barra de ícones da esquerda -->
+            <nav class="pub-icones">
+                <button type="button" class="ativo">⌂</button>
+                <button type="button">☺</button>
+                <button type="button">▤</button>
+                <button type="button">◉</button>
+                <button type="button">⚙</button>
+            </nav>
+
+
+            <!-- editor -->
+            <section class="pub-editor">
+
+                <!-- título -->
+                <input type="text" class="pub-titulo" placeholder="Digite seu título aqui...">
+
+                <!-- toolbar -->
+                <div class="pub-toolbar">
+                    <div class="pub-formatar">
+                        <button type="button"><b>B</b></button>
+                        <button type="button"><i>I</i></button>
+                        <button type="button"><s>S</s></button>
+                        <button type="button">≡</button>
+                        <button type="button">▣</button>
+                        <button type="button">🔗</button>
+                        <button type="button">&lt;&gt;</button>
+                    </div>
+
+                    <!-- adicionar mídia -->
+                    <button type="button" class="pub-add-midia">+ add mídia</button>
+                </div>
+
+                <!-- texto da notícia -->
+                <textarea class="pub-texto" placeholder="Escreva sua notícia ou artigo..."></textarea>
+
+                <!-- contador -->
+                <div class="pub-contador">Caracteres: 0 | Palavras: 0</div>
+
+            </section>
+
+
+            <!-- configurações -->
+            <aside class="pub-config">
+
+                <h2>Configurações de Publicação</h2>
+
+                <!-- autor -->
+                <div class="pub-campo">
+                    <label for="autor">Autor</label>
+                    <select id="autor">
+                        <option>Avatar</option>
+                    </select>
+                </div>
+
+                <!-- categorias -->
+                <div class="pub-campo">
+                    <label>Categorias</label>
+                    <div class="pub-tags">
+                        <span class="pub-tag">Jogos ✕</span>
+                        <span class="pub-tag">Notícias ✕</span>
+                        <span class="pub-tag">Hardware ✕</span>
+                        <span class="pub-tag">Dicas ✕</span>
+                    </div>
+                </div>
+
+                <!-- tags -->
+                <div class="pub-campo">
+                    <label>Tags</label>
+                    <div class="pub-tags">
+                        <span class="pub-tag">Jogos ✕</span>
+                        <span class="pub-tag">Notícias ✕</span>
+                        <span class="pub-tag">Dicas ✕</span>
+                    </div>
+                </div>
+
+                <!-- imagem de destaque -->
+                <div class="pub-campo">
+                    <label>Imagem de Destaque</label>
+                    <div class="pub-capa">
+                        <span>▣</span>
+                        <p>Adicionar imagem de capa</p>
+                    </div>
+                </div>
+
+                <!-- seo -->
+                <div class="pub-campo">
+                    <h3>Opções de SEO</h3>
+                    <label for="meta">Meta Description</label>
+                    <textarea id="meta" rows="3"></textarea>
+                </div>
+
+                <!-- status e visibilidade -->
+                <div class="pub-campo">
+                    <h3>Status e Visibilidade</h3>
+
+                    <div class="pub-duas-colunas">
+                        <div>
+                            <label for="status">Status</label>
+                            <select id="status">
+                                <option>Rascunho</option>
+                                <option>Publicado</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="visibilidade">Visibilidade</label>
+                            <select id="visibilidade">
+                                <option>Público</option>
+                                <option>Privado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- agendar -->
+                <div class="pub-campo">
+                    <label for="agendar">Agendar</label>
+                    <input type="date" id="agendar">
+                </div>
+
+            </aside>
+
+        </div>
+    </main>
+
+</body>
+
+</html>

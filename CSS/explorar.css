@@ -1,0 +1,396 @@
+/*cores da tela*/
+:root {
+    --fundo: #0F0F1A;
+    --roxo: #4751FF;
+    --roxo-claro: #7C81FF;
+    --texto-suave: #ABADFF;
+    --texto-menu: #D8D9FF;
+    --borda: #0020E1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* configurações gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--fundo);
+    color: #FFFFFF;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+
+/* header */
+.header {
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(90deg, #000F89, #2D1AA8);
+}
+
+/* container do header (mesmo espaçamento lateral do conteúdo) */
+.container {
+    width: 100%;
+    height: 80px;
+    padding: 0 64px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+/* logo */
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-right: 16px;
+}
+
+.logo span {
+    color: var(--roxo-claro);
+}
+
+/* menu */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.menu a {
+    font-size: 16px;
+    color: var(--texto-menu);
+    white-space: nowrap;
+    transition: 0.2s;
+}
+
+.menu a:hover {
+    color: var(--roxo-claro);
+}
+
+/* pesquisa */
+.pesquisa {
+    width: 312px;
+    height: 44px;
+    flex-shrink: 0;
+    background-color: var(--fundo);
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+}
+
+.pesquisa input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+.pesquisa input::placeholder {
+    color: var(--texto-suave);
+}
+
+/* botão publicar */
+.btn-publicar {
+    width: 120px;
+    height: 44px;
+    flex-shrink: 0;
+    background-color: var(--roxo);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-left: 645px;
+}
+
+.btn-publicar:hover {
+    background-color: var(--roxo-claro);
+}
+
+/* foto do perfil */
+.perfil {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    margin-left: -16px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.perfil img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* TELA DE PUBLICAR */
+
+/* conteúdo (mesmo espaçamento lateral do header) */
+.pub {
+    width: 100%;
+    padding: 24px 64px 48px;
+}
+
+/* voltar */
+.pub-voltar {
+    display: inline-block;
+    margin-bottom: 32px;
+    font-size: 13px;
+    color: var(--texto-menu);
+}
+
+.pub-voltar:hover {
+    color: var(--roxo-claro);
+}
+
+/* divide: ícones | editor | configurações */
+.pub-layout {
+    display: flex;
+    gap: 40px;
+    align-items: stretch;
+}
+
+
+/* barra de ícones */
+.pub-icones {
+    width: 56px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 16px;
+    border-right: 1px solid rgba(71, 81, 255, 0.25);
+}
+
+.pub-icones button {
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    border-radius: 10px;
+    color: var(--texto-suave);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.pub-icones button:hover,
+.pub-icones .ativo {
+    background-color: rgba(71, 81, 255, 0.25);
+    color: #FFFFFF;
+}
+
+
+/* editor */
+.pub-editor {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 720px;
+}
+
+/* título */
+.pub-titulo {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 24px 0 20px;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.pub-titulo::placeholder {
+    color: var(--texto-suave);
+}
+
+/* toolbar */
+.pub-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+}
+
+.pub-formatar {
+    display: flex;
+    gap: 6px;
+}
+
+.pub-formatar button {
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    color: var(--texto-menu);
+    cursor: pointer;
+}
+
+.pub-formatar button:hover {
+    background-color: rgba(71, 81, 255, 0.25);
+    color: #FFFFFF;
+}
+
+/* botão add mídia */
+.pub-add-midia {
+    background: transparent;
+    border: none;
+    color: var(--texto-suave);
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.pub-add-midia:hover {
+    color: #FFFFFF;
+}
+
+/* texto da notícia */
+.pub-texto {
+    flex: 1;
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+    padding: 12px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #FFFFFF;
+}
+
+.pub-texto::placeholder {
+    color: var(--texto-suave);
+}
+
+/* contador */
+.pub-contador {
+    padding-top: 12px;
+    font-size: 11px;
+    color: var(--texto-suave);
+}
+
+
+/* configurações (lado direito) */
+.pub-config {
+    width: 340px;
+    flex-shrink: 0;
+}
+
+.pub-config h2 {
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+
+.pub-config h3 {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.pub-campo {
+    margin-bottom: 24px;
+}
+
+/* nome de cada campo */
+.pub-campo label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 11px;
+    color: var(--texto-suave);
+}
+
+/* selects e inputs sem caixa */
+.pub-campo select,
+.pub-campo input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 4px 0;
+    color: #FFFFFF;
+    font-size: 13px;
+    color-scheme: dark;
+}
+
+/* lista do select */
+.pub-campo option {
+    background-color: var(--fundo);
+}
+
+/* meta description */
+.pub-campo textarea {
+    width: 100%;
+    height: 70px;
+    background: transparent;
+    border: 1px solid rgba(71, 81, 255, 0.25);
+    border-radius: 8px;
+    outline: none;
+    resize: none;
+    padding: 10px 12px;
+    color: #FFFFFF;
+    font-size: 13px;
+}
+
+/* tags e categorias */
+.pub-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.pub-tag {
+    background-color: rgba(71, 81, 255, 0.2);
+    border: 1px solid var(--roxo);
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 11px;
+    color: var(--texto-menu);
+}
+
+/* imagem de capa */
+.pub-capa {
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--texto-suave);
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.pub-capa:hover {
+    color: #FFFFFF;
+}
+
+/* status e visibilidade lado a lado */
+.pub-duas-colunas {
+    display: flex;
+    gap: 24px;
+}
+
+.pub-duas-colunas div {
+    flex: 1;
+}
