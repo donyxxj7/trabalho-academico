@@ -1,7 +1,4 @@
-/* ============================= */
-/* RESET BÁSICO */
 /* Remove espaçamentos padrão do navegador */
-/* ============================= */
 
 * {
     margin: 0;
@@ -15,8 +12,8 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #000448;
-    color: #FFFFFF;
+    background-color: #11111B;
+    color: #ECEDF8;
 }
 
 
@@ -42,7 +39,8 @@ input {
     width: 100%;
     height: 80px;
 
-    background-color: #000F89;
+    background: linear-gradient(90deg, #17178F, #000F89, #000448);
+    border-bottom: 1px solid #0020E1;
 }
 
 
@@ -118,7 +116,7 @@ input {
 
     margin-left: 32px;
 
-    background-color: #000448;
+    background-color: #11111B;
 
     border: 1px solid #0020E1;
     border-radius: 18px;
@@ -254,7 +252,7 @@ main {
 /* POSTS */
 
 .post {
-    background-color: #000F89;
+    background-color: #11111B;
 
     border: 1px solid #0020E1;
     border-radius: 16px;
@@ -615,4 +613,3 @@ main {
 .comunidade button:hover {
     background-color: #4751FF;
 }
-

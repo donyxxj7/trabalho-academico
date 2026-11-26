@@ -1,0 +1,455 @@
+/* Remove espaçamentos padrão do navegador */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+/* CONFIGURAÇÕES GERAIS DA PÁGINA */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #11111B;
+    color: #ECEDF8;
+}
+
+
+/* Remove o sublinhado padrão dos links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* Faz botões e inputs usarem a mesma fonte da página */
+button,
+input {
+    font-family: inherit;
+}
+
+
+/* Barra superior da página */
+
+.header {
+    width: 100%;
+    height: 80px;
+
+    background: linear-gradient(90deg, #17178F, #000F89, #000448);
+}
+
+
+/* Centraliza os itens dentro do header */
+
+.container {
+    width: 1280px;
+    height: 80px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+}
+
+
+
+/* LOGO GAMEZONE */
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+
+    color: #FFFFFF;
+
+    margin-right: 48px;
+}
+
+
+
+/* MENU DE NAVEGAÇÃO */
+/* Início, Explorar, Notícias... */
+
+.menu {
+    display: flex;
+    align-items: center;
+
+    gap: 32px;
+}
+
+
+/* Estilo padrão dos links do menu */
+.menu a {
+    font-size: 16px;
+
+    color: #D8D9FF;
+
+    transition: 0.2s;
+}
+
+
+/* Cor quando passa o mouse em cima */
+.menu a:hover {
+    color: #7C81FF;
+}
+
+
+/* Página atual selecionada */
+.menu .ativo {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+
+
+/* CAMPO DE PESQUISA */
+
+.pesquisa {
+    width: 312px;
+    height: 44px;
+
+    margin-left: 32px;
+
+    background-color: #11111B;
+
+    border: 1px solid #0020E1;
+    border-radius: 18px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 16px;
+}
+
+
+/* Ícone da pesquisa */
+.pesquisa span {
+    color: #D8D9FF;
+
+    margin-right: 10px;
+}
+
+
+/* Campo onde o usuário digita */
+.pesquisa input {
+    width: 100%;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+
+    color: #FFFFFF;
+
+    font-size: 14px;
+}
+
+
+/* Texto que aparece antes de digitar */
+.pesquisa input::placeholder {
+    color: #ABADFF;
+}
+
+
+/* BOTÃO PUBLICAR */
+
+.btn-publicar {
+    width: 120px;
+    height: 44px;
+
+    margin-left: 24px;
+
+    background-color: #4751FF;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    font-weight: bold;
+
+    color: #FFFFFF;
+}
+
+
+/* Cor do botão ao passar o mouse */
+.btn-publicar:hover {
+    background-color: #7C81FF;
+}
+
+/* PERFIL / AVATAR */
+
+.perfil {
+    width: 40px;
+    height: 40px;
+
+    margin-left: 16px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+}
+
+
+/* Faz a imagem ocupar o círculo inteiro */
+.perfil img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+.pagina-lista-noticias {
+    background-color: #11111B;
+    color: #ECEDF8;
+}
+
+.pagina-lista-noticias .header {
+    border-bottom: 1px solid #0020E1;
+}
+
+.noticias-pagina {
+    width: 1280px;
+    max-width: 96%;
+    margin: 0 auto;
+    padding-top: 46px;
+    padding-bottom: 65px;
+}
+
+.noticias-apresentacao {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+}
+
+.noticias-indicador {
+    color: #7C81FF;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 14px;
+}
+
+.noticias-apresentacao h1 {
+    font-size: 38px;
+    margin-bottom: 8px;
+}
+
+.noticias-apresentacao p {
+    color: #ABADFF;
+    font-size: 15px;
+}
+
+.noticias-apresentacao .noticias-indicador {
+    color: #7C81FF;
+    font-size: 12px;
+}
+
+.noticias-apresentacao .noticias-legenda {
+    font-size: 13px;
+}
+
+.noticias-filtros {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 26px;
+}
+
+.noticias-categorias {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.noticias-categorias a {
+    background-color: #11111B;
+    border: 1px solid #0020E1;
+    border-radius: 20px;
+    padding: 10px 19px;
+    color: #D8D9FF;
+    font-size: 13px;
+}
+
+.noticias-categorias .selecionado,
+.noticias-categorias a:hover {
+    background-color: #4751FF;
+    border-color: #7C81FF;
+    color: #FFFFFF;
+}
+
+.noticias-busca {
+    width: 270px;
+    height: 42px;
+    padding: 0 14px;
+    background-color: #11111B;
+    border: 1px solid #0020E1;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.noticias-busca span {
+    font-size: 22px;
+    color: #ABADFF;
+    margin-right: 8px;
+}
+
+.noticias-busca input {
+    color: #FFFFFF;
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 13px;
+}
+
+.noticias-busca input::placeholder {
+    color: #ABADFF;
+}
+
+.noticias-grade-principal,
+.noticias-grade-secundaria {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.noticias-card {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border: 1px solid #0020E1;
+    border-radius: 16px;
+    background-color: #11111B;
+    color: #FFFFFF;
+}
+
+.noticias-card-grande { flex: 2; height: 364px; }
+.noticias-card-menor { flex: 1; height: 364px; }
+.noticias-card-inferior { flex: 1; height: 250px; }
+
+.noticias-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.noticias-degrade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #11111B 1%, rgba(17,17,27,0.92) 19%, rgba(17,17,27,0.20) 72%, transparent 100%);
+}
+
+.noticias-informacoes {
+    position: absolute;
+    left: 22px;
+    right: 22px;
+    bottom: 20px;
+}
+
+.noticias-etiqueta {
+    display: inline-block;
+    border-radius: 14px;
+    background-color: #4751FF;
+    padding: 7px 12px;
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 11px;
+}
+
+.noticias-informacoes h2 {
+    font-size: 19px;
+    line-height: 1.25;
+    margin-bottom: 10px;
+}
+
+.noticias-card-grande .noticias-informacoes h2 {
+    font-size: 28px;
+    max-width: 500px;
+}
+
+.noticias-informacoes p {
+    color: #D8D9FF;
+    font-size: 13px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.noticias-informacoes .noticias-data {
+    font-size: 12px;
+    color: #ABADFF;
+    margin-bottom: 0;
+}
+
+.noticias-abrir {
+    display: inline-block;
+    background-color: #4751FF;
+    border-radius: 10px;
+    margin-top: 14px;
+    padding: 9px 14px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.noticias-card-grande:hover {
+    border-color: #7C81FF;
+}
+
+.noticias-card-grande:hover .noticias-abrir {
+    background-color: #7C81FF;
+}
+
+.noticias-card-inferior .noticias-informacoes h2 {
+    font-size: 17px;
+}
+
+.noticias-aviso {
+    color: #ABADFF;
+    font-size: 12px;
+    margin-top: 26px;
+}
+
+@media (max-width: 1320px) {
+    .container { width: 96%; }
+    .logo { margin-right: 20px; }
+    .menu { gap: 16px; }
+    .pesquisa { margin-left: auto; width: 240px; }
+}
+
+@media (max-width: 1020px) {
+    .header, .container { height: auto; min-height: 80px; }
+    .container { flex-wrap: wrap; gap: 12px; padding: 12px 0; }
+    .menu { order: 3; width: 100%; justify-content: center; }
+    .pesquisa { margin-left: auto; }
+    .btn-publicar { margin-left: 0; }
+    .perfil { margin-left: 0; }
+    .noticias-filtros { flex-wrap: wrap; }
+    .noticias-card-grande { flex: 1.5; }
+    .noticias-card-menor { flex: 1; }
+    .noticias-informacoes { left: 14px; right: 14px; }
+    .noticias-informacoes h2 { font-size: 16px; }
+    .noticias-card-grande .noticias-informacoes h2 { font-size: 22px; }
+}
+
+@media (max-width: 720px) {
+    .noticias-apresentacao { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .noticias-grade-principal, .noticias-grade-secundaria { flex-direction: column; }
+    .noticias-card-grande, .noticias-card-menor, .noticias-card-inferior { flex: auto; height: 280px; }
+    .noticias-card-grande { height: 400px; }
+    .noticias-busca { width: 100%; }
+    .noticias-pagina { padding-top: 28px; }
+    .noticias-apresentacao h1 { font-size: 30px; }
+    .menu { gap: 16px; flex-wrap: wrap; }
+}

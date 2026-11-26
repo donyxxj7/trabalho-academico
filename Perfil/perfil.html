@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - GameZone</title>
+    <link rel="stylesheet" href="perfil.css">
+</head>
+<body>
+
+    <!-- Mesmo cabeçalho da página inicial: foto leva ao perfil -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">GameZone</a>
+            <nav class="menu">
+                <a href="index.html">Início</a>
+                <a href="explorar.html">Explorar</a>
+                <a href="noticias.html">Notícias</a>
+                <a href="guias.html">Guias</a>
+                <a href="comunidade.html">Comunidade</a>
+            </nav>
+            <div class="pesquisa">
+                <span>⌕</span>
+                <input type="text" placeholder="Buscar jogos, notícias...">
+            </div>
+            <a href="publicar.html" class="btn-publicar">+ Publicar</a>
+            <a href="perfil.html" class="perfil" title="Abrir perfil">
+                <img src="assets/avatar.jpg" alt="Foto de perfil">
+            </a>
+        </div>
+    </header>
+
+    <main class="perfil-pagina">
+        <!-- CARTAO PRINCIPAL DO PERFIL -->
+        <section class="perfil-card">
+            <div class="perfil-capa"></div>
+            <div class="perfil-foto-grande"></div>
+
+            <div class="perfil-informacoes">
+                <h1>Silvano da Silva</h1>
+                <p class="perfil-usuario">@silvano.silva</p>
+                <p class="perfil-biografia">Maior viciado no mundo dos games.</p>
+            </div>
+
+            <button type="button" class="botao-editar">Editar perfil</button>
+
+            <div class="perfil-numeros">
+                <div><strong>12</strong> <span>Publicações</span></div>
+                <div><strong>666</strong> <span>Seguidores</span></div>
+                <div><strong>225</strong> <span>Seguindo</span></div>
+            </div>
+        </section>
+
+        <!-- COLUNA DE PUBLICACOES E COLUNA LATERAL -->
+        <div class="perfil-colunas">
+            <section class="perfil-publicacoes" id="publicacoes">
+                <div class="perfil-abas">
+                    <span class="aba-ativa">Publicações</span>
+                    <span>Comentários</span>
+                    <span>Salvos</span>
+                </div>
+
+                <div class="perfil-titulos">
+                    <h2>Publicações recentes</h2>
+                    <span>Conteúdos publicados por você</span>
+                </div>
+
+                <!-- PUBLICACAO 1 -->
+                <article class="perfil-post">
+                    <div class="perfil-post-cabecalho">
+                        <span class="perfil-foto-pequena"></span>
+                        <div>
+                            <strong>Silvano da Silva</strong>
+                            <p>@silvano.silva • 2h</p>
+                        </div>
+                    </div>
+                    <p class="perfil-post-texto">
+                        GTA VI continua sendo um dos jogos que mais acompanho. As últimas informações
+                        deixaram a comunidade ainda mais curiosa.
+                    </p>
+                    <p class="perfil-post-rodape">GRANDES LANÇAMENTOS &nbsp; • &nbsp; 18 curtidas &nbsp; • &nbsp; 6 comentários</p>
+                    <div class="perfil-post-imagem imagem-gta" title="Imagem de GTA VI"></div>
+                </article>
+
+                <!-- PUBLICACAO 2 -->
+                <article class="perfil-post">
+                    <div class="perfil-post-cabecalho">
+                        <span class="perfil-foto-pequena"></span>
+                        <div>
+                            <strong>Silvano da Silva</strong>
+                            <p>@silvano.silva • ontem</p>
+                        </div>
+                    </div>
+                    <p class="perfil-post-texto">
+                        Separei algumas dicas para quem está começando em Hogwarts Legacy e quer
+                        evoluir sem perder tempo nas primeiras horas.
+                    </p>
+                    <p class="perfil-post-rodape">GUIAS &nbsp; • &nbsp; 54 curtidas &nbsp; • &nbsp; 12 comentários</p>
+                    <div class="perfil-post-imagem imagem-hogwarts" title="Imagem de Hogwarts Legacy"></div>
+                </article>
+
+                <!-- PUBLICACAO 3 -->
+                <article class="perfil-post">
+                    <div class="perfil-post-cabecalho">
+                        <span class="perfil-foto-pequena"></span>
+                        <div>
+                            <strong>Silvano da Silva</strong>
+                            <p>@silvano.silva • ontem</p>
+                        </div>
+                    </div>
+                    <p class="perfil-post-texto">
+                        Qual foi o lançamento que mais surpreendeu vocês este ano? Quero montar uma
+                        lista com as recomendações da comunidade.
+                    </p>
+                    <p class="perfil-post-rodape">COMUNIDADE &nbsp; • &nbsp; 150 curtidas &nbsp; • &nbsp; 123 comentários</p>
+                    <div class="perfil-post-imagem imagem-comunidade" title="Imagem da comunidade gamer"></div>
+                </article>
+            </section>
+
+            <!-- CARDS DO LADO DIREITO -->
+            <aside class="perfil-lateral">
+                <section class="perfil-card-lateral">
+                    <h2>Sobre</h2>
+                    <p>Jogador e estudante. Acompanho lançamentos, notícias e compartilho dicas sobre os jogos que estou jogando.</p>
+                    <div class="perfil-sobre-dados">
+                        <span>Joinville, SC</span>
+                        <span>No GameZone desde 2026</span>
+                    </div>
+                </section>
+
+                <section class="perfil-card-lateral jogos-favoritos">
+                    <h2>Jogos Favoritos</h2>
+                    <div class="perfil-jogo">
+                        <div class="foto-jogo foto-gta"></div>
+                        <div>
+                            <strong>GTA VI</strong>
+                            <span>Grandes lançamentos</span>
+                        </div>
+                    </div>
+                    <div class="perfil-jogo">
+                        <div class="foto-jogo foto-hogwarts"></div>
+                        <div>
+                            <strong>Hogwarts Legacy</strong>
+                            <span>RPG</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="perfil-card-lateral perfil-atividades">
+                    <h2>Atividades</h2>
+                    <div><span>Curtidas</span><strong>126</strong></div>
+                    <div><span>Comentários</span><strong>48</strong></div>
+                    <div><span>Itens salvos</span><strong>17</strong></div>
+                </section>
+            </aside>
+        </div>
+    </main>
+</body>
+</html>

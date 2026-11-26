@@ -1,0 +1,635 @@
+/* Remove espaçamentos padrão do navegador */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+/* CONFIGURAÇÕES GERAIS DA PÁGINA */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #11111B;
+    color: #ECEDF8;
+}
+
+
+/* Remove o sublinhado padrão dos links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* Faz botões e inputs usarem a mesma fonte da página */
+button,
+input {
+    font-family: inherit;
+}
+
+
+/* Barra superior da página */
+
+.header {
+    width: 100%;
+    height: 80px;
+
+    background: linear-gradient(90deg, #17178F, #000F89, #000448);
+}
+
+
+/* Centraliza os itens dentro do header */
+
+.container {
+    width: 1280px;
+    height: 80px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+}
+
+
+
+/* LOGO GAMEZONE */
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+
+    color: #FFFFFF;
+
+    margin-right: 48px;
+}
+
+
+
+/* MENU DE NAVEGAÇÃO */
+/* Início, Explorar, Notícias... */
+
+.menu {
+    display: flex;
+    align-items: center;
+
+    gap: 32px;
+}
+
+
+/* Estilo padrão dos links do menu */
+.menu a {
+    font-size: 16px;
+
+    color: #D8D9FF;
+
+    transition: 0.2s;
+}
+
+
+/* Cor quando passa o mouse em cima */
+.menu a:hover {
+    color: #7C81FF;
+}
+
+
+/* Página atual selecionada */
+.menu .ativo {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+
+
+/* CAMPO DE PESQUISA */
+
+.pesquisa {
+    width: 312px;
+    height: 44px;
+
+    margin-left: 32px;
+
+    background-color: #11111B;
+
+    border: 1px solid #0020E1;
+    border-radius: 18px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 16px;
+}
+
+
+/* Ícone da pesquisa */
+.pesquisa span {
+    color: #D8D9FF;
+
+    margin-right: 10px;
+}
+
+
+/* Campo onde o usuário digita */
+.pesquisa input {
+    width: 100%;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+
+    color: #FFFFFF;
+
+    font-size: 14px;
+}
+
+
+/* Texto que aparece antes de digitar */
+.pesquisa input::placeholder {
+    color: #ABADFF;
+}
+
+
+/* BOTÃO PUBLICAR */
+
+.btn-publicar {
+    width: 120px;
+    height: 44px;
+
+    margin-left: 24px;
+
+    background-color: #4751FF;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    font-weight: bold;
+
+    color: #FFFFFF;
+}
+
+
+/* Cor do botão ao passar o mouse */
+.btn-publicar:hover {
+    background-color: #7C81FF;
+}
+
+/* PERFIL / AVATAR */
+
+.perfil {
+    width: 40px;
+    height: 40px;
+
+    margin-left: 16px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+}
+
+
+/* Faz a imagem ocupar o círculo inteiro */
+.perfil img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* CONTEUDO CENTRAL DA PAGINA */
+.perfil-pagina {
+    width: 1280px;
+    max-width: 96%;
+    margin: 77px auto 32px;
+}
+
+/* CARTAO GRANDE DO USUARIO */
+.perfil-card {
+    height: 264px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #0020e1;
+    border-radius: 16px;
+    background-color: #11111B;
+    margin-bottom: 24px;
+}
+
+.perfil-capa {
+    height: 96px;
+    background: linear-gradient(100deg, #000F89, #0020E1, #4751FF);
+}
+
+.perfil-foto-grande {
+    position: absolute;
+    top: 58px;
+    left: 28px;
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    border: 2px solid #ecedf8;
+    background: linear-gradient(135deg, #7c81ff, #4751ff);
+}
+
+.perfil-informacoes {
+    margin-left: 135px;
+    margin-top: 16px;
+}
+
+.perfil-informacoes h1 {
+    font-size: 19px;
+    margin-bottom: 9px;
+}
+
+.perfil-usuario {
+    font-size: 13px;
+    color: #abadff;
+    margin-bottom: 12px;
+}
+
+.perfil-biografia {
+    font-size: 14px;
+    color: #d8d9ff;
+}
+
+.botao-editar {
+    position: absolute;
+    top: 115px;
+    right: 28px;
+    height: 40px;
+    width: 132px;
+    border-radius: 12px;
+    border: none;
+    background-color: #4751ff;
+    color: white;
+    cursor: pointer;
+}
+
+.perfil-numeros {
+    position: absolute;
+    bottom: 0;
+    left: 28px;
+    right: 28px;
+    height: 45px;
+    border-top: 1px solid #0020e1;
+    display: flex;
+    align-items: center;
+    gap: 26px;
+}
+
+.perfil-numeros strong {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.perfil-numeros span {
+    font-size: 12px;
+    color: #abadff;
+}
+
+/* ABA DE POSTS E COLUNA LATERAL */
+.perfil-colunas {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 0 7px;
+}
+
+.perfil-publicacoes {
+    width: 856px;
+    flex: 1;
+    min-width: 0;
+}
+
+.perfil-lateral {
+    width: 400px;
+}
+
+.perfil-abas {
+    border-bottom: 1px solid #0020e1;
+    height: 44px;
+    display: flex;
+    gap: 46px;
+    align-items: flex-start;
+}
+
+.perfil-abas span {
+    padding-bottom: 16px;
+    color: #abadff;
+    font-size: 14px;
+}
+
+.perfil-abas .aba-ativa {
+    border-bottom: 3px solid #7c81ff;
+    color: white;
+}
+
+.perfil-titulos {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 20px 0 12px;
+}
+
+.perfil-titulos h2 {
+    font-size: 20px;
+}
+
+.perfil-titulos span {
+    color: #abadff;
+    font-size: 12px;
+}
+
+/* TRES PUBLICACOES */
+.perfil-post {
+    position: relative;
+    background-color: #11111B;
+    border: 1px solid #0020e1;
+    border-radius: 14px;
+    height: 140px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.perfil-post-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.perfil-foto-pequena {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #ABADFF;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7c81ff, #4751ff);
+}
+
+.perfil-post-cabecalho strong {
+    font-size: 14px;
+}
+
+.perfil-post-cabecalho p {
+    margin-top: 3px;
+    color: #abadff;
+    font-size: 11px;
+}
+
+.perfil-post-texto {
+    margin-top: 10px;
+    padding-right: 195px;
+    color: #d8d9ff;
+    font-size: 13px;
+    line-height: 1.2;
+}
+
+.perfil-post-rodape {
+    position: absolute;
+    left: 16px;
+    bottom: 12px;
+    color: #abadff;
+    font-size: 11px;
+}
+
+.perfil-post-imagem {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    width: 164px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: #16195c;
+    background-position: center;
+    background-size: cover;
+}
+
+/* Coloque as imagens exportadas do Figma na pasta assets */
+.imagem-gta {
+    background-image: url("assets/news-gta.jpg");
+}
+
+.imagem-hogwarts {
+    background-image: url("assets/news-witcher.jpg");
+}
+
+.imagem-comunidade {
+    background-image: url("assets/news-valorant.jpg");
+}
+
+/* BLOCOS DA COLUNA DIREITA */
+.perfil-card-lateral {
+    width: 100%;
+    background-color: #000F89;
+    border: 1px solid #0020e1;
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 34px;
+    min-height: 166px;
+}
+
+.perfil-card-lateral h2 {
+    font-size: 16px;
+    margin-bottom: 13px;
+}
+
+.perfil-card-lateral p {
+    font-size: 13px;
+    color: #d8d9ff;
+}
+
+.perfil-sobre-dados {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #0020e1;
+    padding-top: 14px;
+    margin-top: 36px;
+    color: #abadff;
+    font-size: 12px;
+}
+
+.perfil-jogo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.perfil-jogo strong, .perfil-jogo span {
+    display: block;
+}
+
+.perfil-jogo strong {
+    font-size: 13px;
+    margin-bottom: 3px;
+}
+
+.perfil-jogo span {
+    font-size: 11px;
+    color: #abadff;
+}
+
+.foto-jogo {
+    width: 34px;
+    height: 34px;
+    background-color: #000448;
+    background-size: cover;
+    background-position: center;
+}
+
+.foto-gta {
+    background-image: url("assets/news-gta.jpg");
+}
+
+.foto-hogwarts {
+    background-image: url("assets/news-witcher.jpg");
+}
+
+.perfil-atividades div {
+    display: flex;
+    justify-content: space-between;
+    margin: 16px 14px 16px 0;
+    font-size: 13px;
+}
+
+.perfil-atividades div span {
+    color: #abadff;
+}
+
+/* AJUSTES PARA TELAS MENORES */
+@media (max-width: 1200px) {
+    .container {
+        gap: 14px;
+    }
+    .logo {
+        margin-right: 10px;
+    }
+    .menu {
+        gap: 15px;
+    }
+    .pesquisa {
+        width: 220px;
+    }
+    .btn-publicar {
+        margin-left: 0;
+    }
+    .perfil {
+        margin-left: 0;
+    }
+    .perfil-lateral {
+        width: 34%;
+    }
+}
+
+@media (max-width: 850px) {
+    .header, .container {
+        height: auto;
+        min-height: 73px;
+    }
+    .container {
+        flex-wrap: wrap;
+        padding: 12px 0;
+        gap: 14px;
+    }
+    .menu {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .pesquisa {
+        margin-left: auto;
+        flex: 1;
+    }
+    .perfil-pagina {
+        margin-top: 28px;
+    }
+    .perfil-colunas {
+        flex-direction: column;
+    }
+    .perfil-publicacoes, .perfil-lateral {
+        width: 100%;
+    }
+    .perfil-card {
+        height: 290px;
+    }
+    .perfil-informacoes {
+        margin-top: 60px;
+        margin-left: 28px;
+    }
+    .botao-editar {
+        top: 110px;
+    }
+    .perfil-post-texto {
+        padding-right: 180px;
+    }
+}
+
+@media (max-width: 520px) {
+    .pesquisa {
+        width: 100%;
+        flex: auto;
+        margin-left: 0;
+    }
+    .perfil-card {
+        height: 324px;
+    }
+    .perfil-informacoes {
+        margin-top: 63px;
+        margin-left: 17px;
+    }
+    .perfil-foto-grande {
+        left: 17px;
+    }
+    .botao-editar {
+        right: 16px;
+        top: 115px;
+    }
+    .perfil-numeros {
+        left: 16px;
+        right: 16px;
+        gap: 10px;
+    }
+    .perfil-abas {
+        gap: 24px;
+    }
+    .perfil-post {
+        height: 170px;
+    }
+    .perfil-post-imagem {
+        width: 100px;
+        height: 80px;
+    }
+    .perfil-post-texto {
+        padding-right: 110px;
+    }
+    .perfil-post-rodape {
+        font-size: 10px;
+    }
+    .perfil-titulos {
+        flex-wrap: wrap;
+    }
+}
+
+/* AJUSTES VISUAIS PARA COMBINAR COM O FEED */
+body { background-color: #11111B; color: #ECEDF8; }
+.perfil-pagina { margin-top: 55px; }
+.perfil-card { background-color: #11111B; }
+.perfil-post { background-color: #11111B; }
+.perfil-card-lateral { background-color: #000F89; }
+.perfil-numeros { border-top-color: #0020E1; }
+.perfil-capa { background: linear-gradient(100deg, #000F89, #0020E1, #4751FF); }
+.perfil-abas .aba-ativa { border-bottom-color: #4751FF; }
+.perfil-card-lateral { margin-bottom: 22px; }
+.perfil-foto-grande { background: linear-gradient(135deg,#7C81FF,#4751FF); }
+.perfil-post-imagem { background-color: #11111B; }
+@media(max-width:1020px) {
+    .perfil-colunas { flex-direction: column; }
+    .perfil-publicacoes, .perfil-lateral { width: 100%; }
+}

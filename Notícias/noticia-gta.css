@@ -1,3 +1,6 @@
+/* Remove espaçamentos padrão do navegador */
+
+
 * {
     margin: 0;
     padding: 0;
@@ -10,8 +13,8 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #000448;
-    color: #FFFFFF;
+    background-color: #11111B;
+    color: #ECEDF8;
 }
 
 
@@ -29,15 +32,13 @@ input {
 }
 
 
-
-/* HEADER */
 /* Barra superior da página */
 
 .header {
     width: 100%;
     height: 80px;
 
-    background-color: #000F89;
+    background: linear-gradient(90deg, #17178F, #000F89, #000448);
 }
 
 
@@ -113,7 +114,7 @@ input {
 
     margin-left: 32px;
 
-    background-color: #000448;
+    background-color: #11111B;
 
     border: 1px solid #0020E1;
     border-radius: 18px;
@@ -204,412 +205,6 @@ input {
     object-fit: cover;
 }
 
-/* CONTEÚDO PRINCIPAL */
-
-main {
-    width: 100%;
-}
-
-.inicio {
-    width: 1280px;
-    margin: 0 auto;
-
-    display: flex;
-
-    gap: 32px;
-
-    padding-top: 32px;
-    padding-bottom: 64px;
-}
-
-
-
-/* ÁREA DO FEED */
-
-.conteudo-principal {
-    width: 850px;
-}
-
-/* TÍTULO DA PÁGINA */
-
-.titulo-pagina {
-    margin-bottom: 24px;
-}
-
-.titulo-pagina h1 {
-    font-size: 32px;
-    margin-bottom: 8px;
-}
-
-.titulo-pagina p {
-    font-size: 16px;
-    color: #ABADFF;
-}
-
-/* POSTS */
-
-.post {
-    background-color: #000F89;
-
-    border: 1px solid #0020E1;
-    border-radius: 16px;
-
-    padding: 24px;
-
-    margin-bottom: 24px;
-}
-
-/* USUÁRIO DO POST */
-
-.post-usuario {
-    display: flex;
-    align-items: center;
-
-    gap: 12px;
-
-    margin-bottom: 16px;
-}
-
-.post-usuario img {
-    width: 40px;
-    height: 40px;
-
-    border-radius: 50%;
-
-    object-fit: cover;
-}
-
-.post-usuario div {
-    display: flex;
-    flex-direction: column;
-}
-
-.post-usuario strong {
-    font-size: 14px;
-}
-
-.post-usuario span {
-    font-size: 13px;
-    color: #ABADFF;
-}
-
-/* CONTEÚDO DO POST */
-
-.categoria {
-    display: inline-block;
-
-    margin-bottom: 10px;
-
-    font-size: 12px;
-    font-weight: bold;
-
-    color: #7C81FF;
-}
-
-.post-conteudo h2 {
-    font-size: 22px;
-
-    margin-bottom: 8px;
-}
-
-.post-conteudo p {
-    font-size: 15px;
-
-    line-height: 1.5;
-
-    color: #D8D9FF;
-
-    margin-bottom: 16px;
-}
-
-
-/* Imagem principal da publicação */
-
-.post-imagem {
-    width: 100%;
-    height: 320px;
-
-    border-radius: 12px;
-
-    object-fit: cover;
-}
-
-/* BOTÕES DO POST */
-
-.post-acoes {
-    display: flex;
-
-    gap: 16px;
-
-    margin-top: 16px;
-}
-
-.post-acoes button {
-    background: transparent;
-
-    border: none;
-
-    color: #D8D9FF;
-
-    cursor: pointer;
-}
-
-.post-acoes button:hover {
-    color: #7C81FF;
-}
-
-/* BARRA LATERAL */
-/* Jogos em alta e comunidades */
-
-.lateral {
-    width: 398px;
-}
-
-/* CARDS DA BARRA LATERAL */
-
-.card-lateral {
-    background-color: #000F89;
-
-    border: 1px solid #0020E1;
-    border-radius: 16px;
-
-    padding: 20px;
-
-    margin-bottom: 24px;
-}
-
-
-/* Título dos cards laterais */
-.card-lateral h2 {
-    font-size: 20px;
-
-    margin-bottom: 16px;
-}
-
-
-/* JOGOS EM ALTA */
-
-.jogo {
-    display: flex;
-    flex-direction: column;
-
-    padding: 12px 0;
-
-    border-bottom: 1px solid #0020E1;
-}
-
-
-/* Remove a linha do último jogo */
-.jogo:last-child {
-    border-bottom: none;
-}
-
-
-/* Nome do jogo */
-.jogo strong {
-    font-size: 15px;
-
-    margin-bottom: 4px;
-}
-
-
-/* Quantidade de publicações */
-.jogo span {
-    font-size: 13px;
-
-    color: #ABADFF;
-}
-
-/* COMUNIDADES */
-
-.comunidade {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 12px;
-
-    padding: 12px 0;
-
-    border-bottom: 1px solid #0020E1;
-}
-
-
-/* Remove a linha da última comunidade */
-.comunidade:last-child {
-    border-bottom: none;
-}
-
-
-/* Informações da comunidade */
-.comunidade div {
-    display: flex;
-    flex-direction: column;
-}
-
-
-/* Nome da comunidade */
-.comunidade strong {
-    font-size: 15px;
-
-    margin-bottom: 4px;
-}
-
-
-/* Quantidade de membros */
-.comunidade span {
-    font-size: 13px;
-
-    color: #ABADFF;
-}
-
-
-/* Botão seguir */
-.comunidade button {
-    background-color: transparent;
-
-    border: 1px solid #4751FF;
-    border-radius: 8px;
-
-    padding: 6px 12px;
-
-    color: #FFFFFF;
-
-    cursor: pointer;
-}
-
-
-/* Efeito ao passar o mouse */
-.comunidade button:hover {
-    background-color: #4751FF;
-}
-
-/* BARRA LATERAL */
-/* Jogos em alta e comunidades */
-
-.lateral {
-    width: 398px;
-}
-
-
-/* CARDS LATERAIS */
-
-.card-lateral {
-    background-color: #000F89;
-
-    border: 1px solid #0020E1;
-    border-radius: 16px;
-
-    padding: 20px;
-
-    margin-bottom: 24px;
-}
-
-
-/* Título dos cards laterais */
-.card-lateral h2 {
-    font-size: 20px;
-
-    margin-bottom: 16px;
-}
-
-/* JOGOS EM ALTA */
-
-.jogo {
-    display: flex;
-    flex-direction: column;
-
-    padding: 12px 0;
-
-    border-bottom: 1px solid #0020E1;
-}
-
-
-/* Remove a linha do último item */
-.jogo:last-child {
-    border-bottom: none;
-}
-
-
-/* Nome do jogo */
-.jogo strong {
-    font-size: 15px;
-
-    margin-bottom: 4px;
-}
-
-
-/* Quantidade de publicações */
-.jogo span {
-    font-size: 13px;
-
-    color: #ABADFF;
-}
-
-
-/* COMUNIDADES */
-
-.comunidade {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 12px;
-
-    padding: 12px 0;
-
-    border-bottom: 1px solid #0020E1;
-}
-
-
-/* Remove a linha da última comunidade */
-.comunidade:last-child {
-    border-bottom: none;
-}
-
-
-/* Informações da comunidade */
-.comunidade div {
-    display: flex;
-    flex-direction: column;
-}
-
-
-/* Nome da comunidade */
-.comunidade strong {
-    font-size: 15px;
-
-    margin-bottom: 4px;
-}
-
-
-/* Quantidade de membros */
-.comunidade span {
-    font-size: 13px;
-
-    color: #ABADFF;
-}
-
-
-/* Botão seguir */
-.comunidade button {
-    background-color: transparent;
-
-    border: 1px solid #4751FF;
-    border-radius: 8px;
-
-    padding: 6px 12px;
-
-    color: #FFFFFF;
-
-    cursor: pointer;
-}
-
-
-/* Efeito ao passar o mouse */
-.comunidade button:hover {
-    background-color: #4751FF;
-}
 
 .pagina-noticia {
     background-color: #11111B;
@@ -617,8 +212,8 @@ main {
 }
 
 .pagina-noticia .header {
-    background-color: #120B54;
-    border-bottom: 2px solid #4751FF;
+    background: linear-gradient(90deg, #17178F, #000F89, #000448);
+    border-bottom: 1px solid #0020E1;
 }
 
 .pagina-noticia .header .container {
@@ -696,7 +291,7 @@ main {
     align-items: center;
     gap: 12px;
     padding: 14px 18px;
-    border: 1px solid #2A2F57;
+    border: 1px solid #0020E1;
     border-radius: 12px;
     margin-bottom: 30px;
 }
@@ -753,7 +348,7 @@ main {
 
 .noticia-citacao {
     border-left: 3px solid #4751FF;
-    background-color: #191A31;
+    background-color: #171728;
     border-radius: 8px;
     padding: 18px 22px;
     margin-bottom: 25px;
@@ -768,8 +363,8 @@ main {
     display: flex;
     align-items: center;
     gap: 24px;
-    border-top: 1px solid #2A2F57;
-    border-bottom: 1px solid #2A2F57;
+    border-top: 1px solid #0020E1;
+    border-bottom: 1px solid #0020E1;
     padding: 17px 4px;
     margin-top: 26px;
     margin-bottom: 32px;
@@ -809,7 +404,7 @@ main {
     display: flex;
     align-items: flex-start;
     gap: 14px;
-    border: 1px solid #2A2F57;
+    border: 1px solid #0020E1;
     border-radius: 12px;
     padding: 16px;
     margin-bottom: 20px;
@@ -841,8 +436,8 @@ main {
 .comentario-campo textarea {
     width: 100%;
     height: 70px;
-    background-color: #11111B;
-    border: 1px solid #2A2F57;
+    background-color: #171728;
+    border: 1px solid #0020E1;
     color: #FFFFFF;
     border-radius: 8px;
     padding: 14px;
@@ -853,7 +448,7 @@ main {
 .comentario {
     display: flex;
     gap: 15px;
-    border-bottom: 1px solid #2A2F57;
+    border-bottom: 1px solid #0020E1;
     padding: 18px 0;
 }
 
@@ -892,7 +487,7 @@ main {
 .carregar-comentarios {
     width: 100%;
     background-color: transparent;
-    border: 1px solid #2A2F57;
+    border: 1px solid #0020E1;
     color: #ECEDF8;
     border-radius: 10px;
     margin-top: 18px;
@@ -905,11 +500,11 @@ main {
 }
 
 .noticia-card-lateral {
-    border: 1px solid #2A2F57;
+    border: 1px solid #0020E1;
     border-radius: 12px;
     padding: 20px;
     margin-bottom: 22px;
-    background-color: #12121F;
+    background-color: #11111B;
 }
 
 .noticia-card-lateral h2 {

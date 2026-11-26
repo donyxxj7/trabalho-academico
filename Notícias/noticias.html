@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notícias - GameZone</title>
+    <link rel="stylesheet" href="noticia.css">
+</head>
+<body class="pagina-lista-noticias">
+    <!-- Cabeçalho no mesmo formato utilizado pelo Dony -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">GameZone</a>
+            <nav class="menu">
+                <a href="index.html">Início</a>
+                <a href="explorar.html">Explorar</a>
+                <a href="noticias.html" class="ativo">Notícias</a>
+                <a href="guias.html">Guias</a>
+                <a href="comunidade.html">Comunidade</a>
+            </nav>
+            <div class="pesquisa">
+                <span>⌕</span>
+                <input type="text" placeholder="Buscar jogos, notícias...">
+            </div>
+            <a href="publicar.html" class="btn-publicar">+ Publicar</a>
+            <a href="perfil.html" class="perfil" title="Abrir perfil">
+                <img src="assets/avatar.jpg" alt="Foto de perfil">
+            </a>
+        </div>
+    </header>
+
+    <main class="noticias-pagina">
+        <section class="noticias-apresentacao">
+            <div>
+                <p class="noticias-indicador">GAMEZONE / NOTÍCIAS</p>
+                <h1>Notícias</h1>
+                <p>Fique por dentro das principais novidades do mundo dos games.</p>
+            </div>
+            <p class="noticias-legenda">Seu portal de notícias gamer</p>
+        </section>
+
+        <section class="noticias-filtros">
+            <div class="noticias-categorias">
+                <a class="selecionado" href="noticias.html">Todas</a>
+                <a href="#lancamentos">Lançamentos</a>
+                <a href="#atualizacoes">Atualizações</a>
+                <a href="#industria">Indústria</a>
+                <a href="#esports">eSports</a>
+            </div>
+            <div class="noticias-busca">
+                <span>⌕</span>
+                <input type="text" placeholder="Buscar notícias...">
+            </div>
+        </section>
+
+        <!-- A notícia GTA VI é o único card com matéria completa por enquanto -->
+        <section class="noticias-grade-principal" id="lancamentos">
+            <a class="noticias-card noticias-card-grande" href="noticia-gta.html">
+                <img src="assets/news-gta.jpg" alt="Ilustração de GTA VI">
+                <div class="noticias-degrade"></div>
+                <div class="noticias-informacoes">
+                    <span class="noticias-etiqueta">DESTAQUE · GTA VI</span>
+                    <h2>GTA VI pode esconder mais do que parece</h2>
+                    <p>Novas informações reacenderam as especulações sobre o próximo GTA. Confira o que se sabe até agora.</p>
+                    <span class="noticias-data">Rockstar Games · 12 min de leitura</span>
+                    <span class="noticias-abrir">Ler notícia →</span>
+                </div>
+            </a>
+
+            <article class="noticias-card noticias-card-menor" id="atualizacoes">
+                <img src="assets/news-witcher.jpg" alt="Ilustração de um guerreiro em cenário de fantasia">
+                <div class="noticias-degrade"></div>
+                <div class="noticias-informacoes">
+                    <span class="noticias-etiqueta">ATUALIZAÇÃO</span>
+                    <h2>The Witcher 4: novidades sobre o próximo RPG</h2>
+                    <p class="noticias-data">Matéria em breve</p>
+                </div>
+            </article>
+
+            <article class="noticias-card noticias-card-menor">
+                <img src="assets/news-samurai.jpg" alt="Ilustração de guerreiro samurai">
+                <div class="noticias-degrade"></div>
+                <div class="noticias-informacoes">
+                    <span class="noticias-etiqueta">LANÇAMENTOS</span>
+                    <h2>Novidades dos jogos de aventura e ação</h2>
+                    <p class="noticias-data">Matéria em breve</p>
+                </div>
+            </article>
+        </section>
+
+        <section class="noticias-grade-secundaria" id="industria">
+            <article class="noticias-card noticias-card-inferior">
+                <img src="assets/news-xbox.jpg" alt="Ilustração de console de videogame">
+                <div class="noticias-degrade"></div>
+                <div class="noticias-informacoes">
+                    <span class="noticias-etiqueta">INDÚSTRIA</span>
+                    <h2>O que esperar da próxima geração de consoles?</h2>
+                    <p class="noticias-data">Matéria em breve</p>
+                </div>
+            </article>
+            <article class="noticias-card noticias-card-inferior" id="esports">
+                <img src="assets/news-valorant.jpg" alt="Ilustração de personagem de jogo competitivo">
+                <div class="noticias-degrade"></div>
+                <div class="noticias-informacoes">
+                    <span class="noticias-etiqueta">ESPORTS</span>
+                    <h2>Jogos competitivos: os campeonatos em destaque</h2>
+                    <p class="noticias-data">Matéria em breve</p>
+                </div>
+            </article>
+            <article class="noticias-card noticias-card-inferior">
+                <img src="assets/news-elden.jpg" alt="Ilustração de cenário de RPG de fantasia">
+                <div class="noticias-degrade"></div>
+                <div class="noticias-informacoes">
+                    <span class="noticias-etiqueta">ATUALIZAÇÕES</span>
+                    <h2>Os próximos desafios dos grandes RPGs</h2>
+                    <p class="noticias-data">Matéria em breve</p>
+                </div>
+            </article>
+        </section>
+        <p class="noticias-aviso">As notícias sem uma página própria estão identificadas como “Matéria em breve”.</p>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
